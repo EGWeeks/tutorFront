@@ -1,10 +1,11 @@
-angular.module('templateApp')
-  .controller('MainController', [MainController]);
+'use strict';
+
+angular.module('tutor')
+  .controller('HomeCtrl', [HomeCtrl]);
 
 
 
-function MainController () {
+function HomeCtrl () {
   var vm = this;
-  vm.title = 'Angular Template App';
-  vm.subtitle = 'Welcome to Angular!';
+  vm.test = "testing blah";
 }
