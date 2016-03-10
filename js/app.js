@@ -1,1 +1,1 @@
-angular.module('tutor', []);
+angular.module('tutor', ['ngRoute']);
