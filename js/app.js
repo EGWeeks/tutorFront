@@ -1,1 +1,1 @@
-angular.module('tutor', ['tutorConfig', 'mainCtrl']);
+angular.module('tutor', ['tutorConfig', 'homeCtrl', 'homeSrc']);

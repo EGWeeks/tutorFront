@@ -8,8 +8,14 @@ tutorConfig.config(['$routeProvider', function($routeProvider) {
 
 		.when('/', {
 			templateUrl: 'partials/home.html',
-			controller: 'mainCtrl',
-			controllerAs: 'MC'
+			controller: 'homeCtrl',
+			controllerAs: 'HC'
+		})
+		
+		.when('/signup', {
+			templateUrl: 'partials/signup.html',
+			controller: 'homeCtrl',
+			controllerAs: 'HC'
 		});
 
 }]);
