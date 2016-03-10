@@ -1,1 +1,1 @@
-angular.module('tutor', ['ngRoute']);
+angular.module('tutor', ['tutorConfig', 'mainCtrl']);

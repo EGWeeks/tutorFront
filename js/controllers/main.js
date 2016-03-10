@@ -1,9 +1,10 @@
 'use strict';
 
-angular.module('tutor')
-  .controller('HomeCtrl', [HomeCtrl]);
+var mainCtrl = angular.module('mainCtrl', []);
 
-function HomeCtrl () {
+  mainCtrl.controller('mainCtrl', [MainCtrl]);
+
+function MainCtrl () {
 
   var vm = this;
   vm.test = "testing blah";
