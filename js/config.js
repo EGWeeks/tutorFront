@@ -16,6 +16,12 @@ tutorConfig.config(['$routeProvider', function($routeProvider) {
 			templateUrl: 'partials/signup.html',
 			controller: 'homeCtrl',
 			controllerAs: 'HC'
+		})
+
+		.when('/login', {
+			templateUrl: 'partials/logIn.html',
+			controller: 'homeCtrl',
+			controllerAs: 'HC'
 		});
 
 }]);

@@ -18,4 +18,15 @@ angular.module('homeSrc', [])
 			});
 		};
 
+		this.logIn = function(email, pass) {
+			return $http({
+				method: 'POST',
+				url: 'http://localhost:3000/users/signin',
+				data: {
+					email : email,
+					password : pass
+				}
+			});
+		};
+
 	}
