@@ -1,0 +1,22 @@
+{
+  "name": "tutorAng",
+  "homepage": "https://github.com/EGWeeks/tutorFront",
+  "authors": [
+    "Ethan Weeks <ethanweeks@ymail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-local-storage": "~0.2.5"
+  }
+}

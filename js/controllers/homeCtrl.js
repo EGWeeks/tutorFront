@@ -1,9 +1,9 @@
 'use strict';
 
-angular.module('homeCtrl', [])
-	.controller('homeCtrl', ['$location','homeSrc', HomeCtrl]);
+angular.module('homeCtrl', ['LocalStorageModule'])
+	.controller('homeCtrl', ['$location','homeSrc', 'localStorageService', HomeCtrl]);
 
-	function HomeCtrl($location, homeSrc) {
+	function HomeCtrl($location, homeSrc, localStorageService) {
 
 	  var vm = this;
 
@@ -15,7 +15,8 @@ angular.module('homeCtrl', [])
 	  	console.log(first, last, email, pass);
 	  	homeSrc.signUp(first, last, email, pass)
 	  		.then(function(response) {
-	  			console.log(response);
+	  			localStorageService.set('key', response.data);
+	  			console.log(localStorageService);
 	  		})
 	  		.catch(function(err) {
 	  			console.log(err);
@@ -25,7 +26,8 @@ angular.module('homeCtrl', [])
 	  vm.logIn = function(email, pass) {
 	  	homeSrc.logIn(email, pass)
 	  		.then(function(response) {
-	  			console.log(response);
+	  			localStorageService.set('key', response.data);
+	  			console.log(localStorageService);
 	  		})
 	  		.catch(function(err) {
 	  			console.log(err);
