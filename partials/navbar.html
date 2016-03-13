@@ -9,8 +9,7 @@
       <li class="dropdown">
         <a ng-hide='!HC.getToken()' class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-cog"></span></a>
         <ul class="dropdown-menu">
-          <li><a href="#/{{ HC.userId }}">Edit profile</a></li>
-          <li><a href="#">Another action</a></li>
+          <li><a href="#/profile/{{ HC.userId }}">Edit profile</a></li>
           <li role="separator" class="divider"></li>
           <li><a ng-click='HC.logOut()' href="#/">Sign Out</a></li>
         </ul>

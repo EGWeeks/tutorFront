@@ -22,6 +22,12 @@ tutorConfig.config(['$routeProvider', function($routeProvider) {
 			templateUrl: 'partials/logIn.html',
 			controller: 'homeCtrl',
 			controllerAs: 'HC'
+		})
+
+		.when('/profile/:id', {
+			templateUrl: 'partials/profile.html',
+			controller: 'profileCtrl',
+			controllerAs: 'PC'
 		});
 
 }]);

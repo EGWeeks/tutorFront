@@ -1,1 +1,1 @@
-angular.module('tutor', ['tutorConfig', 'homeCtrl', 'homeSrc', 'navDir']);
+angular.module('tutor', ['tutorConfig', 'homeCtrl', 'profileCtrl', 'homeSrc', 'profileSrc', 'navDir']);
