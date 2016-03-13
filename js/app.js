@@ -1,1 +1,1 @@
-angular.module('tutor', ['tutorConfig', 'homeCtrl','LocalStorageModule', 'homeSrc', 'navDir']);
+angular.module('tutor', ['tutorConfig', 'homeCtrl', 'homeSrc', 'navDir']);
