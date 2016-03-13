@@ -2,7 +2,9 @@
 
 var tutorConfig = angular.module('tutorConfig',['ngRoute']);
 
-tutorConfig.config(['$routeProvider', function($routeProvider) {
+tutorConfig.config(['$httpProvider', '$routeProvider', function($httpProvider, $routeProvider) {
+
+	$httpProvider.interceptors.push('authInterceptor');
 
 	$routeProvider
 

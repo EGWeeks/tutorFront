@@ -8,7 +8,7 @@ angular.module('profileSrc', [])
 		this.getUserById = function(id) {
 			return $http({
 				method: 'Get',
-				// url: 'http://localhost:3000/users/' + id
+				url: 'http://localhost:3000/users/3'
 			});
 		};
 

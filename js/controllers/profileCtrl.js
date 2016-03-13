@@ -6,8 +6,9 @@ angular.module('profileCtrl', [])
 	function ProfileCtrl(profileSrc) {
 
 	  var vm = this;
+	  vm.test = 'blah blah blah';
 
-	  vm.getUserById = function(id) {
+	  vm.getUserById = (function(id) {
 	  	profileSrc.getUserById(id)
 	  		.then(function(userData) {
 	  			console.log(userData);
@@ -15,7 +16,7 @@ angular.module('profileCtrl', [])
 	  		.catch(function(err) {
 	  			console.log(err);
 	  		});
-	  };
+	  })();
 
 	  
 	}
