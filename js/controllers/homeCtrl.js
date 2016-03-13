@@ -6,7 +6,6 @@ angular.module('homeCtrl', ['LocalStorageModule'])
 	function HomeCtrl($location, homeSrc, localStorageService) {
 
 	  var vm = this;
-
 	  vm.goTo = function(route) {
 	  	$location.path(route);
 	  };
@@ -32,6 +31,14 @@ angular.module('homeCtrl', ['LocalStorageModule'])
 	  		.catch(function(err) {
 	  			console.log(err);
 	  		});
+	  };
+
+	  vm.getToken = function() {
+	  	return localStorageService.get('key');
+	  };
+
+	  vm.logOut = function() {
+	  	localStorageService.remove('key');
 	  };
 
 	  

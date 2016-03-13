@@ -5,6 +5,8 @@ angular.module('navDir', [])
 
 	function navbar() {
 		return {
-			templateUrl : '../partials/navbar.html'
+			templateUrl : '../partials/navbar.html',
+			controller : 'homeCtrl',
+			controllerAs : 'HC'
 		};
 	}
