@@ -1,9 +1,9 @@
 'use strict';
 
-angular.module('profileCtrl', [])
-	.controller('profileCtrl', ['$location','profileSrc', ProfileCtrl]);
+angular.module('profileCtrl', ['LocalStorageModule'])
+	.controller('profileCtrl', ['$location','profileSrc','localStorageService', ProfileCtrl]);
 
-	function ProfileCtrl($location, profileSrc) {
+	function ProfileCtrl($location, profileSrc, localStorageService) {
 
 	  var vm = this;
 	  vm.test = 'blah blah blah';
@@ -18,8 +18,6 @@ angular.module('profileCtrl', [])
 	  			vm.firstName = response.data.user.first_name;
 	  			vm.lastName = response.data.user.last_name;
 	  			vm.email = response.data.user.email;
-	  			console.log(vm.email);
-	  			console.log(response);
 	  		})
 	  		.catch(function(err) {
 	  			console.log(err);
@@ -29,14 +27,12 @@ angular.module('profileCtrl', [])
 	  vm.deleteUserById = function() {
 	  	profileSrc.delUserById()
 	  		.then(function(response) {
-	  			//TODO: Remove localStorage key and id
-	  			// might encapsulate profileCtrl with homeCtrl to access functions
+	  			localStorageService.remove('key', 'id');
 	  			console.log(response);
 	  		})
 	  		.catch(function(err) {
 	  			console.log(err);
 	  		});
 	  };
-
 	  
 	}
