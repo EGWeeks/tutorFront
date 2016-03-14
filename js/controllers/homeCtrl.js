@@ -1,9 +1,9 @@
 'use strict';
 
 angular.module('homeCtrl', ['LocalStorageModule'])
-	.controller('homeCtrl', ['$location','homeSrc', 'localStorageService', HomeCtrl]);
+	.controller('homeCtrl', ['$scope','$location','homeSrc', 'localStorageService', HomeCtrl]);
 
-	function HomeCtrl($location, homeSrc, localStorageService) {
+	function HomeCtrl($scope, $location, homeSrc, localStorageService) {
 
 	  var vm = this;
 
@@ -16,7 +16,7 @@ angular.module('homeCtrl', ['LocalStorageModule'])
 	  	homeSrc.signUp(first, last, email, pass)
 	  		.then(function(response) {
 	  			localStorageService.set('key', response.data.token);
-	  			vm.userId = response.data.id;
+					vm.userId = localStorageService.set('id', response.data.id);
 	  		})
 	  		.catch(function(err) {
 	  			console.log(err);
@@ -28,6 +28,7 @@ angular.module('homeCtrl', ['LocalStorageModule'])
 	  		.then(function(response) {
 	  			localStorageService.set('key', response.data.token);
 	  			vm.userId = response.data.id;
+	  			localStorageService.set('id', vm.userId);
 	  		})
 	  		.catch(function(err) {
 	  			console.log(err);
@@ -39,7 +40,13 @@ angular.module('homeCtrl', ['LocalStorageModule'])
 	  };
 
 	  vm.logOut = function() {
-	  	localStorageService.remove('key');
+	  	localStorageService.remove('key', 'id');
+	  };
+
+	  vm.goToProfile = function() {
+	  	console.log(vm);
+	  	var id = localStorageService.get('id');
+	  	$location.path('/profile/' + id);
 	  };
 
 	  

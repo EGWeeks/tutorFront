@@ -8,8 +8,8 @@ angular.module('profileCtrl', [])
 	  var vm = this;
 	  vm.test = 'blah blah blah';
 
-	  vm.getUserById = (function(id) {
-	  	profileSrc.getUserById(id)
+	  vm.getUserById = (function() {
+	  	profileSrc.getUserById()
 	  		.then(function(userData) {
 	  			console.log(userData);
 	  		})

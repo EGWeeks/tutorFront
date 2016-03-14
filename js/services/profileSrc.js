@@ -1,15 +1,14 @@
 'use strict';
 
 angular.module('profileSrc', [])
-	.service('profileSrc', ['$http', ProfileSrc]);
+	.service('profileSrc', ['$http', '$routeParams', ProfileSrc]);
 
-	function ProfileSrc($http){
+	function ProfileSrc($http, $routeParams){
 
-		this.getUserById = function(id) {
+		this.getUserById = function() {
 			return $http({
 				method: 'Get',
-				url: 'http://localhost:3000/users/3'
+				url: 'http://localhost:3000/profile/' + $routeParams.id
 			});
 		};
-
 	}
