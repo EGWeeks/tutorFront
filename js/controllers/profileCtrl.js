@@ -34,5 +34,15 @@ angular.module('profileCtrl', ['LocalStorageModule'])
 	  			console.log(err);
 	  		});
 	  };
+
+	  vm.editUser = function(first, last, email) {
+	  	profileSrc.editUserById(first, last, email)
+	  		.then(function(response) {
+	  			console.log(response);
+	  		})
+	  		.catch(function(err) {
+	  			console.log(err);
+	  		});
+	  };
 	  
 	}

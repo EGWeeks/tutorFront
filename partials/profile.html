@@ -1,36 +1,62 @@
-<div class='row'>
-	<div class='col-md-1'>
+<div ng-hide='edit'>
+	<div class='row'>
+		<div class='col-md-1'>
+		</div>
+		<div class='col-md-1'>
+			<h3>{{ PC.firstName }}</h3>
+		</div>
+		<div class='col-md-1'>
+			<h3>{{ PC.lastName }}</h3>
+		</div>
+		<div class='col-md-5'>
+		</div>
+		<div class='col-md-1'>
+			<button class="btn btn-default" ng-click='edit = !edit'>Edit</button>
+		</div>
+		<div class='col-md-3'>
+		</div>
 	</div>
-	<div class='col-md-1'>
-		<h3>{{ PC.firstName }}</h3>
+	<div class='row'>
+		<div class='col-md-1'>
+		</div>
+		<div class='col-md-2'>
+			<h4>{{ PC.email }}</h4>
+		</div>
+		<div class='col-md=9'>
+		</div>
 	</div>
-	<div class='col-md-1'>
-		<h3>{{ PC.lastName }}</h3>
-	</div>
-	<div class='col-md-5'>
-	</div>
-	<div class='col-md-1'>
-		<button class="btn btn-default">Edit</button>
-	</div>
-	<div class='col-md-3'>
-	</div>
-</div>
-<div class='row'>
-	<div class='col-md-1'>
-	</div>
-	<div class='col-md-2'>
-		<h4>{{ PC.email }}</h4>
-	</div>
-	<div class='col-md=9'>
+
+	<div class='row'>
+		<div class='col-md-1'>
+		</div>
+		<div class='col-md-2'>
+			<button class='btn btn-danger' ng-click=" PC.goTo('/'); PC.deleteUserById();" >Delete</button>
+		</div>
+		<div class='col-md=9'>
+		</div>
 	</div>
 </div>
 
-<div class='row'>
-	<div class='col-md-1'>
+<div ng-show='edit'>
+	<div class='col-md-3'>
 	</div>
-	<div class='col-md-2'>
-		<button class='btn btn-danger' ng-click=" PC.goTo('/'); PC.deleteUserById();" >Delete</button>
+	<div class='col-md-6'>
+	  <form>
+	    <div class="form-group">
+	      <label for="first name">First name</label>
+	      <input type="text" class="form-control" placeholder="First name" ng-model='PC.firstName'required />
+	    </div>
+	    <div class="form-group">
+	      <label for="last name">Last name</label>
+	      <input type="text" class="form-control" placeholder="Last name" ng-model='PC.lastName' required />
+	    </div>
+	    <div class="form-group">
+	      <label for="exampleInputEmail1">Email address</label>
+	      <input type="email" class="form-control" placeholder="Email" ng-model='PC.email'required />
+	    </div>
+	    <button type="submit" class="btn btn-default" ng-click="edit = !edit; PC.editUser(PC.first, PC.last, PC.email)">Submit</button>
+	  </form>
 	</div>
-	<div class='col-md=9'>
+	<div class='col-md-3'>
 	</div>
 </div>

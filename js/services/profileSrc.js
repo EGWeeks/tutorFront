@@ -7,7 +7,7 @@ angular.module('profileSrc', [])
 
 		this.getUserById = function() {
 			return $http({
-				method: 'Get',
+				method: 'GET',
 				url: 'http://localhost:3000/profile/' + $routeParams.id
 			});
 		};
@@ -16,6 +16,18 @@ angular.module('profileSrc', [])
 			return $http({
 				method: 'DELETE',
 				url: 'http://localhost:3000/profile/' + $routeParams.id
+			});
+		};
+
+		this.editUserById = function(first, last, email) {
+			return $http({
+				method: 'PUT',
+				url: 'http://localhost:3000/profile/' + $routeParams.id,
+				data: {
+					firstName: first,
+					lastName: last, 
+					email: email
+				}
 			});
 		};
 	}
