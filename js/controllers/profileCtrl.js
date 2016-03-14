@@ -10,8 +10,12 @@ angular.module('profileCtrl', [])
 
 	  vm.getUserById = (function() {
 	  	profileSrc.getUserById()
-	  		.then(function(userData) {
-	  			console.log(userData);
+	  		.then(function(response) {
+	  			vm.firstName = response.data.user.first_name;
+	  			vm.lastName = response.data.user.last_name;
+	  			vm.email = response.data.user.email;
+	  			console.log(vm.email);
+	  			console.log(response);
 	  		})
 	  		.catch(function(err) {
 	  			console.log(err);
