@@ -12,11 +12,10 @@ angular.module('homeCtrl', ['LocalStorageModule'])
 	  };
 
 	  vm.signUp = function(first, last, email, pass) {
-	  	console.log(first, last, email, pass);
 	  	homeSrc.signUp(first, last, email, pass)
 	  		.then(function(response) {
 	  			localStorageService.set('key', response.data.token);
-					vm.userId = localStorageService.set('id', response.data.id);
+					localStorageService.set('id', response.data.id);
 	  		})
 	  		.catch(function(err) {
 	  			console.log(err);
@@ -27,8 +26,7 @@ angular.module('homeCtrl', ['LocalStorageModule'])
 	  	homeSrc.logIn(email, pass)
 	  		.then(function(response) {
 	  			localStorageService.set('key', response.data.token);
-	  			vm.userId = response.data.id;
-	  			localStorageService.set('id', vm.userId);
+	  			localStorageService.set('id', response.data.id);
 	  		})
 	  		.catch(function(err) {
 	  			console.log(err);
@@ -44,7 +42,6 @@ angular.module('homeCtrl', ['LocalStorageModule'])
 	  };
 
 	  vm.goToProfile = function() {
-	  	console.log(vm);
 	  	var id = localStorageService.get('id');
 	  	$location.path('/profile/' + id);
 	  };
