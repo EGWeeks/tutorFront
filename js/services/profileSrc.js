@@ -11,4 +11,11 @@ angular.module('profileSrc', [])
 				url: 'http://localhost:3000/profile/' + $routeParams.id
 			});
 		};
+
+		this.delUserById = function() {
+			return $http({
+				method: 'DELETE',
+				url: 'http://localhost:3000/profile/' + $routeParams.id
+			});
+		};
 	}

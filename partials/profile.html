@@ -1,6 +1,36 @@
 <div class='row'>
-	<p>profile info goes here</p>
-	{{ PC.firstName }}
-	{{ PC.lastName }}
-	{{ PC.email }}
+	<div class='col-md-1'>
+	</div>
+	<div class='col-md-1'>
+		<h3>{{ PC.firstName }}</h3>
+	</div>
+	<div class='col-md-1'>
+		<h3>{{ PC.lastName }}</h3>
+	</div>
+	<div class='col-md-5'>
+	</div>
+	<div class='col-md-1'>
+		<button class="btn btn-default">Edit</button>
+	</div>
+	<div class='col-md-3'>
+	</div>
+</div>
+<div class='row'>
+	<div class='col-md-1'>
+	</div>
+	<div class='col-md-2'>
+		<h4>{{ PC.email }}</h4>
+	</div>
+	<div class='col-md=9'>
+	</div>
+</div>
+
+<div class='row'>
+	<div class='col-md-1'>
+	</div>
+	<div class='col-md-2'>
+		<button class='btn btn-danger' ng-click=" PC.goTo('/'); PC.deleteUserById()" >Delete</button>
+	</div>
+	<div class='col-md=9'>
+	</div>
 </div>

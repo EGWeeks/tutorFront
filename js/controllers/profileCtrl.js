@@ -1,12 +1,16 @@
 'use strict';
 
 angular.module('profileCtrl', [])
-	.controller('profileCtrl', ['profileSrc', ProfileCtrl]);
+	.controller('profileCtrl', ['$location','profileSrc', ProfileCtrl]);
 
-	function ProfileCtrl(profileSrc) {
+	function ProfileCtrl($location, profileSrc) {
 
 	  var vm = this;
 	  vm.test = 'blah blah blah';
+
+	  vm.goTo = function(route) {
+	  	$location.path(route);
+	  };
 
 	  vm.getUserById = (function() {
 	  	profileSrc.getUserById()
@@ -21,6 +25,18 @@ angular.module('profileCtrl', [])
 	  			console.log(err);
 	  		});
 	  })();
+
+	  vm.deleteUserById = function() {
+	  	profileSrc.delUserById()
+	  		.then(function(response) {
+	  			//TODO: Remove localStorage key and id
+	  			// might encapsulate profileCtrl with homeCtrl to access functions
+	  			console.log(response);
+	  		})
+	  		.catch(function(err) {
+	  			console.log(err);
+	  		});
+	  };
 
 	  
 	}
