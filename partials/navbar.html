@@ -4,6 +4,9 @@
       <li><a href="#/signup">Sign Up</a></li>
       <li><a href="#/login">Log In</a></li>
     </ul>
+    <ul ng-hide='!HC.getToken()' class="nav navbar-nav">
+      <li><a href="#/create">Create Post</a></li>
+    </ul>
     <ul class="nav navbar-nav navbar-right">
       <li class="dropdown">
         <a ng-hide='!HC.getToken()' class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-cog"></span></a>

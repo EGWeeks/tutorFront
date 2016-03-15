@@ -30,6 +30,12 @@ tutorConfig.config(['$httpProvider', '$routeProvider', function($httpProvider, $
 			templateUrl: 'partials/profile.html',
 			controller: 'profileCtrl',
 			controllerAs: 'PC'
+		})
+
+		.when('/create', {
+			templateUrl: 'partials/create.html',
+			controller: 'createPostCtrl',
+			controllerAs: 'CPC'
 		});
 
 }]);
