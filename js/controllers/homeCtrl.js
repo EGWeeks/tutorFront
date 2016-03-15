@@ -12,6 +12,9 @@ angular.module('homeCtrl', ['LocalStorageModule'])
 	  };
 
 	  vm.signUp = function(first, last, email, img, bio, area, pass) {
+	  	if(img === '') {
+	  		img = 'img/default.png';
+	  	}
 	  	homeSrc.signUp(first, last, email, img, bio, area, pass)
 	  		.then(function(response) {
 	  			localStorageService.set('key', response.data.token);
