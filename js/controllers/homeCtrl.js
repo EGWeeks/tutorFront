@@ -12,7 +12,7 @@ angular.module('homeCtrl', ['LocalStorageModule'])
 	  };
 
 	  vm.signUp = function(first, last, email, img, bio, area, pass) {
-	  	if(img === '') {
+	  	if(img === undefined) {
 	  		img = 'img/default.png';
 	  	}
 	  	homeSrc.signUp(first, last, email, img, bio, area, pass)

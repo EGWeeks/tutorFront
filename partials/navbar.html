@@ -1,6 +1,6 @@
 <nav class="navbar navbar-inverse">
   <div class="collapse navbar-collapse">
-    <ul class="nav navbar-nav">
+    <ul ng-hide='HC.getToken()' class="nav navbar-nav">
       <li><a href="#/signup">Sign Up</a></li>
       <li><a href="#/login">Log In</a></li>
     </ul>
@@ -16,5 +16,3 @@
     </ul>
   </div>
 </nav>
-
-<!-- I am trying to route to the users profile page and have an edit button their but only if the id param and id on sign in match? riskY? -->

@@ -42,7 +42,8 @@ angular.module('profileCtrl', ['LocalStorageModule'])
 	  };
 
 	  vm.editUser = function(first, last, email, bio, area, img) {
-	  	if(img === '') {
+
+	  	if(img === undefined) {
 	  		img = 'img/default.png';
 	  	}
 	  	profileSrc.editUserById(first, last, email, bio, area, img)
