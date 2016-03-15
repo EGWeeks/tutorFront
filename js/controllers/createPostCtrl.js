@@ -3,7 +3,7 @@
 angular.module('createPostCtrl' , [])
 	.controller('createPostCtrl', ['postsSrc', CreatePostCtrl]);
 
-	function CreatePostCtrl() {
+	function CreatePostCtrl(postsSrc) {
 
 		var vm = this;
 

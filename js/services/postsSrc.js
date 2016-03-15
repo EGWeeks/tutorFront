@@ -8,7 +8,7 @@ angular.module('postsSrc', [])
 		this.createPost = function(avail, typ, sub, cost, desc) {
 			return $http({
 				method: 'POST',
-				url: 'http://localhost:3000/',//create routes
+				url: 'http://localhost:3000/',//create server side routes
 				data: {
 					subject: sub,
 					type: typ,
