@@ -11,8 +11,8 @@ angular.module('homeCtrl', ['LocalStorageModule'])
 	  	$location.path(route);
 	  };
 
-	  vm.signUp = function(first, last, email, pass) {
-	  	homeSrc.signUp(first, last, email, pass)
+	  vm.signUp = function(first, last, email, img, bio, area, pass) {
+	  	homeSrc.signUp(first, last, email, img, bio, area, pass)
 	  		.then(function(response) {
 	  			localStorageService.set('key', response.data.token);
 					localStorageService.set('id', response.data.id);

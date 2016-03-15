@@ -5,7 +5,7 @@ angular.module('homeSrc', [])
 
 	function HomeSrc($http){
 
-		this.signUp = function(first, last, email, pass) {
+		this.signUp = function(first, last, email, image, biography, area, pass) {
 			return $http({
 				method: 'POST',
 				url: 'http://localhost:3000/users/new',
@@ -13,6 +13,9 @@ angular.module('homeSrc', [])
 					firstName: first,
 					lastName: last,
 					email: email,
+					img: image,
+					bio: biography,
+					area: area,
 					password: pass
 				}
 			});

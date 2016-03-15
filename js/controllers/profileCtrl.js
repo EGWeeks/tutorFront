@@ -6,7 +6,6 @@ angular.module('profileCtrl', ['LocalStorageModule'])
 	function ProfileCtrl($location, profileSrc, localStorageService) {
 
 	  var vm = this;
-	  vm.test = 'blah blah blah';
 
 	  vm.goTo = function(route) {
 	  	$location.path(route);
@@ -15,9 +14,16 @@ angular.module('profileCtrl', ['LocalStorageModule'])
 	  vm.getUserById = (function() {
 	  	profileSrc.getUserById()
 	  		.then(function(response) {
-	  			vm.firstName = response.data.user.first_name;
-	  			vm.lastName = response.data.user.last_name;
-	  			vm.email = response.data.user.email;
+
+	  			var data = response.data.user;
+
+	  			vm.firstName = data.first_name;
+	  			vm.lastName = data.last_name;
+	  			vm.email = data.email;
+	  			vm.bio = data.bio;
+	  			vm.area = data.location;
+	  			vm.img = data.img;
+
 	  		})
 	  		.catch(function(err) {
 	  			console.log(err);
@@ -35,8 +41,8 @@ angular.module('profileCtrl', ['LocalStorageModule'])
 	  		});
 	  };
 
-	  vm.editUser = function(first, last, email) {
-	  	profileSrc.editUserById(first, last, email)
+	  vm.editUser = function(first, last, email, bio, area, img) {
+	  	profileSrc.editUserById(first, last, email, bio, area, img)
 	  		.then(function(response) {
 	  			console.log(response);
 	  		})
