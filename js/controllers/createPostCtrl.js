@@ -1,14 +1,19 @@
 'use strict';
 
-angular.module('createPostCtrl' , [])
-	.controller('createPostCtrl', ['postsSrc', CreatePostCtrl]);
+angular.module('createPostCtrl' , ['LocalStorageModule'])
+	.controller('createPostCtrl', ['$location','postsSrc', 'localStorageService', CreatePostCtrl]);
 
-	function CreatePostCtrl(postsSrc) {
+	function CreatePostCtrl($location, postsSrc, localStorageService) {
 
 		var vm = this;
 
-		vm.createPosts = function(avail, type, subject, cost) {
-			postsSrc.createPost(avail, type, subject, cost)
+		vm.goTo = function(route) {
+			$location.path(route);
+		};
+
+		vm.createPosts = function(subject, type, desc, avail, rate, id) {
+			var userId = localStorageService.get('id');
+			postsSrc.createPost(subject, type, desc, avail, rate, userId)
 				.then(function(response) {
 					console.log(response);
 				})

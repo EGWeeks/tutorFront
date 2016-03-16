@@ -1,11 +1,11 @@
 'use strict';
 
 angular.module('postsSrc', [])
-	.service('postsSrc', ['$http', PostsSrc]);
+	.service('postsSrc', ['$http', '$routeParams', PostsSrc]);
 
-	function PostsSrc($http){
+	function PostsSrc($http, $routeParams){
 
-		this.createPost = function(sub, typ, cost, avail, desc) {
+		this.createPost = function(sub, typ, desc, avail, cost, id) {
 			return $http({
 				method: 'POST',
 				url: 'http://localhost:3000/posts',
@@ -14,7 +14,8 @@ angular.module('postsSrc', [])
 					type: typ,
 					rate: cost,
 					avail: avail,
-					desc: desc
+					desc: desc, 
+					user_id: id
 				}
 			});
 		};
