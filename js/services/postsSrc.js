@@ -5,10 +5,10 @@ angular.module('postsSrc', [])
 
 	function PostsSrc($http){
 
-		this.createPost = function(avail, typ, sub, cost, desc) {
+		this.createPost = function(sub, typ, cost, avail, desc) {
 			return $http({
 				method: 'POST',
-				url: 'http://localhost:3000/',//create server side routes
+				url: 'http://localhost:3000/posts',
 				data: {
 					subject: sub,
 					type: typ,

@@ -1,3 +1,34 @@
-<div>
-	{{ CPC.test }}
+<div class='col-md-3'>
+</div>
+<div class='col-md-6'>
+  <form>
+    <div class="form-group">
+      <label for="first name">Subject</label>
+      <input type="text" class="form-control" placeholder="Math" ng-model='CPC.subject' required />
+    </div>
+    <div class="form-group">
+      <label for='type'>Looking for : </label>
+      <label class="radio-inline">
+        <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="tutors"> Tutors
+      </label>
+      <label class="radio-inline">
+        <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="students"> Students
+      </label>
+    </div>
+    <div class="form-group">
+      <label for="exampleInputDesc1">Description</label>
+      <textarea class="form-control" placeholder="I need a help with math 230 discrete math course..." ng-model='HC.desc' ></textarea>
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPassword1">Available</label>
+      <input type="text" class="form-control" placeholder="Mondays and Wednesday after 6" ng-model='CPC.avail' required />
+    </div>
+    <div class="form-group">
+      <label for="exampleInputRate1">Hourly rate</label>
+      <input type="text" class="form-control" placeholder="20.00" ng-model='CPC.rate' required />
+    </div>
+    <button type="submit" class="btn btn-default" ng-click=" CPC.goTo('/posts'); CPC.signUp(CPC.subject, CPC.type, CPC.rate, HC.img, HC.bio, HC.location, HC.pass)">Post</button>
+  </form>
+</div>
+<div class='col-md-3'>
 </div>
