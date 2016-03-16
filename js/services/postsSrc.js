@@ -1,9 +1,9 @@
 'use strict';
 
 angular.module('postsSrc', [])
-	.service('postsSrc', ['$http', PostsSrc]);
+	.service('postsSrc', ['$http', '$routeParams', PostsSrc]);
 
-	function PostsSrc($http){
+	function PostsSrc($http, $routeParams){
 
 		this.createPost = function(sub, typ, desc, avail, cost, id) {
 			return $http({
@@ -17,6 +17,13 @@ angular.module('postsSrc', [])
 					desc: desc, 
 					user_id: id
 				}
+			});
+		};
+
+		this.getPostsByUserId = function() {
+			return $http({
+				method: 'GET',
+				url: 'http://localhost:3000/posts/my/' + $routeParams.id
 			});
 		};
 

@@ -38,6 +38,12 @@ tutorConfig.config(['$httpProvider', '$routeProvider', function($httpProvider, $
 			controllerAs: 'CPC'
 		})
 
+		.when('/posts/my/:id', {
+			tempalateUrl: 'partials/myposts.html',
+			controller: 'createPostCtrl',
+			controllerAs: 'CPC'
+		})
+
 		.when('/posts', {
 			templateUrl: 'partials/posts.html'
 			// controller: '',

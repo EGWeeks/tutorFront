@@ -49,5 +49,10 @@ angular.module('homeCtrl', ['LocalStorageModule'])
 	  	$location.path('/profile/' + id);
 	  };
 
+	  vm.goToMyPosts = function() {
+	  	var id = localStorageService.get('id');
+	  	$location.path('/posts/my/' + id);
+	  };
+
 	  
 	}

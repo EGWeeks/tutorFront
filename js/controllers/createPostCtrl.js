@@ -21,4 +21,16 @@ angular.module('createPostCtrl' , ['LocalStorageModule'])
 					console.log(err);
 				});
 		};
+
+		vm.getPostsByUserId = function() {
+			postsSrc.getPostsByUserId()
+				.then(function(response) {
+					console.log(response);
+				})
+				.catch(function(err) {
+					console.log(err);
+				});
+		};
 	}
+
+
