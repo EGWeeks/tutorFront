@@ -11,6 +11,17 @@ angular.module('createPostCtrl' , ['LocalStorageModule'])
 			$location.path(route);
 		};
 
+		vm.getPostsByUserId = (function() {
+			postsSrc.getPostsUserId()
+				.then(function(response) {
+					console.log(response);
+					vm.posts = response.data.posts;
+				})
+				.catch(function(err) {
+					console.log(err);
+				});
+		})();
+
 		vm.createPosts = function(subject, type, desc, avail, rate) {
 			var userId = localStorageService.get('id');
 			postsSrc.createPost(subject, type, desc, avail, rate, userId)
@@ -22,15 +33,6 @@ angular.module('createPostCtrl' , ['LocalStorageModule'])
 				});
 		};
 
-		vm.getPostsByUserId = function() {
-			postsSrc.getPostsByUserId()
-				.then(function(response) {
-					console.log(response);
-				})
-				.catch(function(err) {
-					console.log(err);
-				});
-		};
 	}
 
 

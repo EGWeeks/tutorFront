@@ -20,7 +20,7 @@ angular.module('postsSrc', [])
 			});
 		};
 
-		this.getPostsByUserId = function() {
+		this.getPostsUserId = function() {
 			return $http({
 				method: 'GET',
 				url: 'http://localhost:3000/posts/my/' + $routeParams.id

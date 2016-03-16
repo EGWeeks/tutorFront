@@ -39,7 +39,7 @@ tutorConfig.config(['$httpProvider', '$routeProvider', function($httpProvider, $
 		})
 
 		.when('/posts/my/:id', {
-			tempalateUrl: 'partials/myposts.html',
+			templateUrl: 'partials/myposts.html',
 			controller: 'createPostCtrl',
 			controllerAs: 'CPC'
 		})

@@ -1,1 +1,20 @@
 <div>********* TODO: ng-repeat through users posts and ng hide or show edit option ***********</div>
+
+<div>
+	<ul ng-repeat='post in CPC.posts'>
+		<h3>User ID:</h3>
+		<l>{{ post.user_id }}</li>
+		<h4>Subject: </h4>
+		<li>{{ post.subject }}</li>
+		<h4>Type: </h4>
+		<li>{{ post.type }}</li>
+		<h4>Description: </h4>
+		<li>{{ post.desc }}</li>
+		<h4>Available Times: </h4>
+		<li>{{ post.avail }}</li>
+		<h4>Rates</h4>
+		<li>{{ post.rate }}</li>
+		----------------------------
+
+	</ul>
+</div>
