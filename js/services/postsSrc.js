@@ -1,9 +1,9 @@
 'use strict';
 
 angular.module('postsSrc', [])
-	.service('postsSrc', ['$http', '$routeParams', PostsSrc]);
+	.service('postsSrc', ['$http', PostsSrc]);
 
-	function PostsSrc($http, $routeParams){
+	function PostsSrc($http){
 
 		this.createPost = function(sub, typ, desc, avail, cost, id) {
 			return $http({
