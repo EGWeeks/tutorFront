@@ -9,7 +9,7 @@ tutorConfig.config(['$httpProvider', '$routeProvider', function($httpProvider, $
 	$routeProvider
 
 		.when('/', {
-			templateUrl: 'partials/home.html',
+			templateUrl: 'partials/landing.html',
 			controller: 'homeCtrl',
 			controllerAs: 'HC'
 		})
@@ -36,6 +36,12 @@ tutorConfig.config(['$httpProvider', '$routeProvider', function($httpProvider, $
 			templateUrl: 'partials/create.html',
 			controller: 'createPostCtrl',
 			controllerAs: 'CPC'
+		})
+
+		.when('/posts', {
+			templateUrl: 'partials/posts.html'
+			// controller: '',
+			// controllerAs: ''
 		});
 
 }]);
