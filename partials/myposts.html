@@ -1,6 +1,6 @@
 <div>********* TODO: ng-repeat through users posts and ng hide or show edit option ***********</div>
 
-<div>
+<div ng-init='CPC.getPostsByUserId()'>
 	<ul ng-repeat='post in CPC.posts'>
 		<h3>User ID:</h3>
 		<l>{{ post.user_id }}</li>
