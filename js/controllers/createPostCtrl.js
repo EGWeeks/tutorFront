@@ -7,6 +7,7 @@ angular.module('createPostCtrl' , ['LocalStorageModule'])
 
 		var vm = this;
 		vm.status = 'success';
+
 		vm.goTo = function(route) {
 			$location.path(route);
 		};
