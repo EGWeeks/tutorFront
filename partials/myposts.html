@@ -12,8 +12,8 @@
         <th>Rate</th>
       </tr>
     </thead>
-    <tbody ng-repeat='post in CPC.posts' ng-class='CPC.status'>
-    	<tr>
+    <tbody ng-repeat='post in CPC.posts' >
+    	<tr ng-class='CPC.status'>
 				<td ng-hide='edit' >Active</td>
 				<td ng-hide='edit' ><button class='btn btn-primary' ng-click='edit = !edit' >Edit</button></td>
 				<td ng-hide='edit' >{{ post.type }}</td>
@@ -23,12 +23,13 @@
 				<td ng-hide='edit' >{{ post.rate }}</td>
 			</tr>
 			<tr>
-				<td ng-show='edit' >Active</td>
-				<td ng-show='edit' ><input type='text' ng-model='post.type' /></td>
-				<td ng-show='edit' ><input type='text' ng-model='post.subject' /></td>
-				<td ng-show='edit' ><input type='text' ng-model='post.avail' /></td>
-				<td ng-show='edit' ><textarea type='text' ng-model='post.desc' ></textarea></td>
-				<td ng-show='edit' ><input type='text' ng-model='post.rate' /></td>
+				<td ng-show='edit'>Active</td>
+				<td ng-show='edit' ><button class='btn btn-warning' ng-click="edit = !edit" >Remove</button></td>
+				<td ng-show='edit' ><input class="form-control" type='text' ng-model='post.type' /></td>
+				<td ng-show='edit' ><input class="form-control" type='text' ng-model='post.subject' /></td>
+				<td ng-show='edit' ><input class="form-control" type='text' ng-model='post.avail' /></td>
+				<td ng-show='edit' ><textarea class="form-control" type='text' ng-model='post.desc' ></textarea></td>
+				<td ng-show='edit' ><input class="form-control" type='text' ng-model='post.rate' /></td>
 			</tr>
 		</tbody>
 		</div>
