@@ -6,7 +6,7 @@ angular.module('createPostCtrl' , ['LocalStorageModule'])
 	function CreatePostCtrl($location, postsSrc, localStorageService) {
 
 		var vm = this;
-
+		vm.status = 'success';
 		vm.goTo = function(route) {
 			$location.path(route);
 		};
