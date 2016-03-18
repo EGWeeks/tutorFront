@@ -53,8 +53,8 @@ angular.module('createPostCtrl' , ['LocalStorageModule'])
 				});
 		};
 
-		vm.editPost = function() {
-			postsSrc.editPost()
+		vm.editPost = function(sub, typ, desc, avail, cost, postId) {
+			postsSrc.editPost(sub, typ, desc, avail, cost, postId)
 				.then(function(response) {
 					console.log(response);
 				})
