@@ -14,6 +14,7 @@ angular.module('createPostCtrl' , ['LocalStorageModule'])
 
 		vm.goToEditPost = function(postId) {
 			var userId = localStorageService.get('id');
+			console.log(postId);
 			$location.path('/post/edit/'+ userId + '/' + postId);
 		};
 		
@@ -53,8 +54,8 @@ angular.module('createPostCtrl' , ['LocalStorageModule'])
 				});
 		};
 
-		vm.editPost = function(sub, typ, desc, avail, cost, postId) {
-			postsSrc.editPost(sub, typ, desc, avail, cost, postId)
+		vm.editPost = function(sub, typ, desc, avail, cost) {
+			postsSrc.editPost(sub, typ, desc, avail, cost)
 				.then(function(response) {
 					console.log(response);
 				})

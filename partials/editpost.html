@@ -5,7 +5,7 @@
   <form>
     <div class="form-group">
       <label for="first name">Subject</label>
-      <input type="text" class="form-control" placeholder="Math" ng-model='CPC.singlePost.subject' required />
+      <input type="text" class="form-control" ng-model='CPC.singlePost.subject' required />
     </div>
     <div class="form-group">
       <label for='type'>Looking for : </label>
@@ -18,15 +18,15 @@
     </div>
     <div class="form-group">
       <label for="exampleInputDesc1">Description</label>
-      <textarea class="form-control" placeholder="I need a help with math 230 discrete math course..." ng-model='CPC.singlePost.desc' ></textarea>
+      <textarea class="form-control" ng-model='CPC.singlePost.desc' ></textarea>
     </div>
     <div class="form-group">
       <label for="exampleInputPassword1">Available</label>
-      <input type="text" class="form-control" placeholder="Mondays and Wednesday after 6 PM" ng-model='CPC.singlePost.avail' required />
+      <input type="text" class="form-control" ng-model='CPC.singlePost.avail' required />
     </div>
     <div class="form-group" ng-show='CPC.singlePost.type == "student"' >
       <label for="exampleInputRate1">Hourly rate</label>
-      <input type="text" class="form-control" placeholder="20.00" ng-model='CPC.singlePost.rate' />
+      <input type="text" class="form-control" ng-model='CPC.singlePost.rate' />
     </div>
     <div class="form-group">
       <label>Created on:</label>
@@ -34,7 +34,7 @@
       <label>Expires on:</label>
       	{{ CPC.singlePost.expiration | dateFilter }}
     </div>
-    <button type="submit" class="btn btn-default" ng-click=" CPC.goTo('/posts/my/' + CPC.singlePost.user_id); CPC.editPost(CPC.singlePost.subject, CPC.singlePost.type, CPC.singlePost.desc, CPC.singlePost.avail, CPC.singlePost.rate, CPC.singlePost.id)">Post</button>
+    <button type="submit" class="btn btn-default" ng-click=" CPC.goTo('/posts/my/' + CPC.singlePost.user_id); CPC.editPost(CPC.singlePost.subject, CPC.singlePost.type, CPC.singlePost.desc, CPC.singlePost.avail, CPC.singlePost.rate)">Post</button>
   </form>
 </div>
 <div class='col-md-3'>
