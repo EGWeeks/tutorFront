@@ -10,17 +10,21 @@
         <th>Availability</th>
         <th>Description</th>
         <th>Rate</th>
+        <th>Posted Date</th>
+        <th>expiration</th>
       </tr>
     </thead>
     <tbody ng-repeat='post in CPC.posts' >
     	<tr ng-class='CPC.status'>
-				<td ng-hide='edit' >Active</td>
+				<td ng-hide='edit' >{{ post.status }}</td>
 				<td ng-hide='edit' ><button class='btn btn-primary' ng-click='edit = !edit' >Edit</button></td>
 				<td ng-hide='edit' >{{ post.type }}</td>
 				<td ng-hide='edit' >{{ post.subject }}</td>
 				<td ng-hide='edit' >{{ post.avail }}</td>
 				<td ng-hide='edit' >{{ post.desc }}</td>
 				<td ng-hide='edit' >{{ post.rate }}</td>
+				<td ng-hide='edit' >{{ post.created_at }}</td>
+				<td ng-hide='edit' >{{ post.expiration }}</td>
 			</tr>
 			<tr>
 				<td ng-show='edit'>Active</td>
