@@ -42,6 +42,16 @@ angular.module('createPostCtrl' , ['LocalStorageModule'])
 				});
 		};
 
+		vm.getPostByPostId = function() {
+			postsSrc.getPostByPostId()
+				.then(function(response)  {
+					console.log(response);
+				})
+				.catch(function(err) {
+					console.log(err);
+				});
+		};
+
 	}
 
 
