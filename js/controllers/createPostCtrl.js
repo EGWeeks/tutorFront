@@ -53,6 +53,16 @@ angular.module('createPostCtrl' , ['LocalStorageModule'])
 				});
 		};
 
+		vm.editPost = function() {
+			postsSrc.editPost()
+				.then(function(response) {
+					console.log(response);
+				})
+				.catch(function(err) {
+					console.log(err);
+				});
+		};
+
 	}
 
 
