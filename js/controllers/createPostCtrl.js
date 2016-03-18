@@ -24,6 +24,9 @@ angular.module('createPostCtrl' , ['LocalStorageModule'])
 		};
 
 		vm.createPosts = function(subject, type, desc, avail, rate) {
+			if(rate === undefined) {
+	  		rate = 'n/a';
+	  	}
 			var userId = localStorageService.get('id');
 			postsSrc.createPost(subject, type, desc, avail, rate, userId)
 				.then(function(response) {
