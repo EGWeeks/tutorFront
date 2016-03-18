@@ -23,8 +23,8 @@
 				<td ng-hide='edit' >{{ post.avail }}</td>
 				<td ng-hide='edit' >{{ post.desc }}</td>
 				<td ng-hide='edit' >{{ post.rate }}</td>
-				<td ng-hide='edit' >{{ post.created_at }}</td>
-				<td ng-hide='edit' >{{ post.expiration }}</td>
+				<td ng-hide='edit' >{{ post.created_at | dateFilter }}</td>
+				<td ng-hide='edit' >{{ post.expiration | dateFilter }}</td>
 			</tr>
 			<tr>
 				<td ng-show='edit'>Active</td>

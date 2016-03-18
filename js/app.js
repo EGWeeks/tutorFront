@@ -1,1 +1,1 @@
-angular.module('tutor', ['authFact', 'tutorConfig', 'dateFilter', 'homeCtrl', 'profileCtrl', 'createPostCtrl', 'homeSrc', 'profileSrc', 'postsSrc', 'navDir']);
+angular.module('tutor', ['authFact', 'tutorConfig', 'filters', 'homeCtrl', 'profileCtrl', 'createPostCtrl', 'homeSrc', 'profileSrc', 'postsSrc', 'navDir']);
