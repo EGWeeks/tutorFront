@@ -34,6 +34,7 @@
       <label>Expires on:</label>
       	{{ CPC.singlePost.expiration | dateFilter }}
     </div>
+    <p>*Editing posts will automatically update created on and expiration dates</p>
     <button type="submit" class="btn btn-default" ng-click=" CPC.goTo('/posts/my/' + CPC.singlePost.user_id); CPC.editPost(CPC.singlePost.subject, CPC.singlePost.type, CPC.singlePost.desc, CPC.singlePost.avail, CPC.singlePost.rate)">Post</button>
   </form>
 </div>
