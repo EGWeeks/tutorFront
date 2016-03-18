@@ -12,6 +12,11 @@ angular.module('createPostCtrl' , ['LocalStorageModule'])
 			$location.path(route);
 		};
 
+		vm.goToEditPost = function(postId) {
+			var userId = localStorageService.get('id');
+			$location.path('/post/edit/'+ userId + '/' + postId);
+		};
+		
 		vm.getPostsByUserId = function() {
 			postsSrc.getPostsUserId()
 				.then(function(response) {

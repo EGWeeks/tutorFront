@@ -14,26 +14,17 @@
         <th>expiration</th>
       </tr>
     </thead>
-    <tbody ng-repeat='post in CPC.posts' >
+    <tbody ng-repeat='post in CPC.posts | orderBy: "created_at"' >
     	<tr ng-class='CPC.status'>
-				<td ng-hide='edit' >{{ post.status }}</td>
-				<td ng-hide='edit' ><button class='btn btn-primary' ng-click='edit = !edit' >Edit</button></td>
-				<td ng-hide='edit' >{{ post.type }}</td>
-				<td ng-hide='edit' >{{ post.subject }}</td>
-				<td ng-hide='edit' >{{ post.avail }}</td>
-				<td ng-hide='edit' >{{ post.desc }}</td>
-				<td ng-hide='edit' >{{ post.rate }}</td>
-				<td ng-hide='edit' >{{ post.created_at | dateFilter }}</td>
-				<td ng-hide='edit' >{{ post.expiration | dateFilter }}</td>
-			</tr>
-			<tr>
-				<td ng-show='edit'>Active</td>
-				<td ng-show='edit' ><button class='btn btn-warning' ng-click="edit = !edit" >Remove</button></td>
-				<td ng-show='edit' ><input class="form-control" type='text' ng-model='post.type' /></td>
-				<td ng-show='edit' ><input class="form-control" type='text' ng-model='post.subject' /></td>
-				<td ng-show='edit' ><input class="form-control" type='text' ng-model='post.avail' /></td>
-				<td ng-show='edit' ><textarea class="form-control" type='text' ng-model='post.desc' ></textarea></td>
-				<td ng-show='edit' ><input class="form-control" type='text' ng-model='post.rate' /></td>
+				<td>{{ post.status }}</td>
+				<td><button class='btn btn-primary' ng-click='CPC.goToEditPost(post.id)' >Edit</button></td>
+				<td>{{ post.type }}</td>
+				<td>{{ post.subject }}</td>
+				<td>{{ post.avail }}</td>
+				<td>{{ post.desc }}</td>
+				<td>{{ post.rate }}</td>
+				<td>{{ post.created_at | dateFilter }}</td>
+				<td>{{ post.expiration | dateFilter }}</td>
 			</tr>
 		</tbody>
 		</div>
