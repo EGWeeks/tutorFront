@@ -46,7 +46,7 @@ angular.module('createPostCtrl' , ['LocalStorageModule'])
 			postsSrc.getPostByPostId()
 				.then(function(response)  {
 					console.log(response);
-					vm.singlePost = response.data;
+					vm.singlePost = response.data.post;
 				})
 				.catch(function(err) {
 					console.log(err);
