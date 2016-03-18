@@ -27,4 +27,11 @@ angular.module('postsSrc', [])
 			});
 		};
 
+		this.getPostByPostId = function() {
+			return $http({
+				method: 'GET',
+				url: 'http://localhost:3000/posts/my/' + $routeParams.id + '/' + $routeParams.postId
+			});
+		};
+
 	}
