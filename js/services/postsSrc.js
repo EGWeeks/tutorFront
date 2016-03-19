@@ -34,11 +34,12 @@ angular.module('postsSrc', [])
 			});
 		};
 
-		this.editPost = function(sub, typ, desc, avail, cost) {
+		this.editPost = function(status, sub, typ, desc, avail, cost) {
 			return $http({
 				method: 'PUT',
 				url: 'http://localhost:3000/posts/my/' + $routeParams.id + '/' + $routeParams.post,
 				data: {
+					status: status,
 					subject: sub,
 					type: typ,
 					rate: cost,
@@ -47,4 +48,5 @@ angular.module('postsSrc', [])
 				}
 			});
 		};
+
 	}
