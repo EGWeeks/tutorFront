@@ -50,10 +50,10 @@ tutorConfig.config(['$httpProvider', '$routeProvider', function($httpProvider, $
 			controllerAs: 'CPC'
 		})
 
-		.when('/posts', {
-			templateUrl: 'partials/posts.html'
-			// controller: '',
-			// controllerAs: ''
+		.when('/feed', {
+			templateUrl: 'partials/feed.html',
+			controller: 'feedCtrl',
+			controllerAs: 'FC'
 		});
 
 }]);
