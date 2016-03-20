@@ -1,10 +1,29 @@
 
 <div class='container core'>
-	<div>********* TODO: extra extra really cool postings page goes here *********</div>
+	<div>********* ERROR: Trying to load postings feed before we have a token *********</div>
+		<p>Problem:</p>
+		<p> - user logs in or signs up on submit goes to '/feed'</p>
+		<p> - immediate invoke ctrl function hits server for user posts</p>
+		<p> - '/feeds' route on server needs a token</p>
+		<p> - server and cleint have not recieved token</p>
+		<p> - figure it out</p>
+		
+	<div>***** TODO: extra extra really cool postings page goes here *****</div>
 	<div>This will be the home page for signed in users</div>
-	<div class='row' ng-repeat='post in FC.postings'>
+	<div class='row post' ng-repeat='post in FC.postings'>
 		<div class='col-md-2'>
-			<img class ='profileThumb' ng-src='{{ post.img }}' alt='profile photo' />
+			<img class ='thumbImg' ng-src='{{ post.img }}' alt='profile photo' />
+		</div>
+		<div class='col-md-2'>
+			<div class='row'>
+				Looking For: {{ post.type }}
+			</div>
+			<div class='row'>
+				Subject: {{ post.subject }}
+			</div>
+		</div>
+		<div class='col-md-2'>
+			Looking For: {{ post.type }}
 		</div>
 	</div>
 </div>

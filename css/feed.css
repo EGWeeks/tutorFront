@@ -1,0 +1,11 @@
+/******* Feed ********/
+
+/***** posts *****/
+.thumbImg {
+	height: 80px;
+	width: 80px;
+}
+
+.post {
+	border: 1px solid black;
+}
