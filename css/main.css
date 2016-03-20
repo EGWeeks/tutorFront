@@ -2,3 +2,12 @@
 	height: 15rem;
 	width: 15rem;
 }
+
+.navbar {
+	opacity: 0.9;
+	box-shadow: 0 10px rgba(0,0,0,0.2);
+}
+
+.core {
+	padding-top: 80px;
+}

@@ -1,34 +1,36 @@
-<div class='col-md-3'>
-</div>
-<div class='col-md-6'>
-  <form>
-    <div class="form-group">
-      <label for="first name">Subject</label>
-      <input type="text" class="form-control" placeholder="Math" ng-model='CPC.subject' required />
-    </div>
-    <div class="form-group">
-      <label for='type'>Looking for : </label>
-      <label class="radio-inline">
-        <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="tutor" ng-model='CPC.type' /> Tutor
-      </label>
-      <label class="radio-inline">
-        <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="student" ng-model='CPC.type' /> Student
-      </label>
-    </div>
-    <div class="form-group">
-      <label for="exampleInputDesc1">Description</label>
-      <textarea class="form-control" placeholder="I need a help with math 230 discrete math course..." ng-model='CPC.desc' ></textarea>
-    </div>
-    <div class="form-group">
-      <label for="exampleInputPassword1">Available</label>
-      <input type="text" class="form-control" placeholder="Mondays and Wednesday after 6 PM" ng-model='CPC.avail' required />
-    </div>
-    <div class="form-group" ng-show='CPC.type == "student"' >
-      <label for="exampleInputRate1">Hourly rate</label>
-      <input type="text" class="form-control" placeholder="20.00" ng-model='CPC.rate' />
-    </div>
-    <button type="submit" class="btn btn-default" ng-click=" CPC.goTo('/posts'); CPC.createPosts(CPC.subject, CPC.type, CPC.desc, CPC.avail, CPC.rate)">Post</button>
-  </form>
-</div>
-<div class='col-md-3'>
+<div class='core'>
+  <div class='col-md-3'>
+  </div>
+  <div class='col-md-6'>
+    <form>
+      <div class="form-group">
+        <label for="first name">Subject</label>
+        <input type="text" class="form-control" placeholder="Math" ng-model='CPC.subject' required />
+      </div>
+      <div class="form-group">
+        <label for='type'>Looking for : </label>
+        <label class="radio-inline">
+          <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="tutor" ng-model='CPC.type' /> Tutor
+        </label>
+        <label class="radio-inline">
+          <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="student" ng-model='CPC.type' /> Student
+        </label>
+      </div>
+      <div class="form-group">
+        <label for="exampleInputDesc1">Description</label>
+        <textarea class="form-control" placeholder="I need a help with math 230 discrete math course..." ng-model='CPC.desc' ></textarea>
+      </div>
+      <div class="form-group">
+        <label for="exampleInputPassword1">Available</label>
+        <input type="text" class="form-control" placeholder="Mondays and Wednesday after 6 PM" ng-model='CPC.avail' required />
+      </div>
+      <div class="form-group" ng-show='CPC.type == "student"' >
+        <label for="exampleInputRate1">Hourly rate</label>
+        <input type="text" class="form-control" placeholder="20.00" ng-model='CPC.rate' />
+      </div>
+      <button type="submit" class="btn btn-default" ng-click=" CPC.goTo('/posts'); CPC.createPosts(CPC.subject, CPC.type, CPC.desc, CPC.avail, CPC.rate)">Post</button>
+    </form>
+  </div>
+  <div class='col-md-3'>
+  </div>
 </div>
