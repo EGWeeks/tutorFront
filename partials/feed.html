@@ -3,6 +3,8 @@
 	<div>********* TODO: extra extra really cool postings page goes here *********</div>
 	<div>This will be the home page for signed in users</div>
 	<div class='row' ng-repeat='post in FC.postings'>
-		<p>	{{ post.id }} </p>
+		<div class='col-md-2'>
+			<img class = 'profileThumb' ng-src='{{ post.img }}' alt='profile photo' />
+		</div>
 	</div>
 </div>

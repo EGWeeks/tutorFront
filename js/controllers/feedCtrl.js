@@ -10,6 +10,7 @@ angular.module('feedCtrl', [])
 	  vm.getFeed = (function() {
 	  	feedSrc.getFeed()
 	  		.then(function(response){
+	  			console.log(response.data.posts);
 	  			vm.postings = response.data.posts;
 	  		})
 	  		.catch(function(err){
