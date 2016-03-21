@@ -19,7 +19,9 @@ angular.module('homeCtrl', ['LocalStorageModule'])
 	  		.then(function(response) {
 	  			localStorageService.set('key', response.data.token);
 					localStorageService.set('id', response.data.id);
-					 vm.goTo('/feed');
+					// Invoke goTo function after the server has returned with token
+					// f/eed requires token
+					vm.goTo('/feed');
 	  		})
 	  		.catch(function(err) {
 	  			console.log(err);
@@ -31,6 +33,8 @@ angular.module('homeCtrl', ['LocalStorageModule'])
 	  		.then(function(response) {
 	  			localStorageService.set('key', response.data.token);
 	  			localStorageService.set('id', response.data.id);
+					// Invoke goTo function after the server has returned with token
+					// /feed requires token
 	  			vm.goTo('/feed');
 	  		})
 	  		.catch(function(err) {

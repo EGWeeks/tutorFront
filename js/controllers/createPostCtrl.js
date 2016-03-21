@@ -37,6 +37,7 @@ angular.module('createPostCtrl' , ['LocalStorageModule'])
 			postsSrc.createPost(subject, type, desc, avail, rate, userId)
 				.then(function(response) {
 					console.log(response);
+					vm.goTo('/feed');
 				})
 				.catch(function(err) {
 					console.log(err);
@@ -58,6 +59,7 @@ angular.module('createPostCtrl' , ['LocalStorageModule'])
 			postsSrc.editPost(status, sub, typ, desc, avail, cost)
 				.then(function(response) {
 					console.log(response);
+					vm.goTo("posts/my/" + vm.singlePost.user_id);
 				})
 				.catch(function(err) {
 					console.log(err);
