@@ -1,19 +1,27 @@
 
 <div class='container core'>
-	<div class='row post' ng-repeat='post in FC.postings'>
+	<div class='row post' ng-repeat='post in FC.postings | postByRecent' >
 		<div class='col-md-2'>
 			<img class ='thumbImg' ng-src='{{ post.img }}' alt='profile photo' />
 		</div>
-		<div class='col-md-2'>
+		<div class='col-md-3'>
 			<div class='row'>
-				Looking For: {{ post.type }}
+				<h5>Looking For: {{ post.type }}</h5>
 			</div>
 			<div class='row'>
-				Subject: {{ post.subject }}
+				<h5>Subject: {{ post.subject }}</h5>
+			</div>
+			<div class='row'>
+				<h5>{{ post.location }}</h5>
 			</div>
 		</div>
-		<div class='col-md-2'>
-			Looking For: {{ post.type }}
+		<div class='col-md-3'>
+			<div class='row'>
+				<a href='mailto:{{ post.email }}'><h5>Contact User</h5></a>
+			</div>
+			<div class='row'>
+				<h5>Created On: {{ post.created_at | dateFilter }}</h5>
+			</div>
 		</div>
 	</div>
 </div>

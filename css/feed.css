@@ -7,6 +7,7 @@
 }
 
 .post {
+	padding: 5px 0;
 	border: 1px solid black;
 	border-radius: 15px;
 	box-shadow: 0 5px rgba(0,0,0,0.2);

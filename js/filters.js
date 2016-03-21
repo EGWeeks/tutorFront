@@ -6,4 +6,10 @@ angular.module('filters', [])
 				date = date.split('T');
 				return date[0];
 			};
+	})
+
+	.filter('postByRecent', function() {
+		return function(date) {
+			return date.slice().reverse();
+		};
 	});
