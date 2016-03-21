@@ -1,18 +1,5 @@
 
 <div class='container core'>
-	<div>********* ERROR: Trying to load postings feed before we have a token *********</div>
-		<p>Problem:</p>
-		<p> - user logs in or signs up on submit goes to '/feed'</p>
-		<p> - immediate invoke ctrl function hits server for user posts</p>
-		<p> - '/feeds' route on server needs a token</p>
-		<p> - server and cleint have not recieved token</p>
-		<p> - figure it out</p>
-			<ul>
-				<li>A. Change invoke order in ng-clicks on submit buttons</li>
-				<li>B. Invoke goTo() function inside controller after user auth route has returned with token</li>
-			</ul>
-	<div>***** TODO: extra extra really cool postings page goes here *****</div>
-	<div>This will be the home page for signed in users</div>
 	<div class='row post' ng-repeat='post in FC.postings'>
 		<div class='col-md-2'>
 			<img class ='thumbImg' ng-src='{{ post.img }}' alt='profile photo' />
