@@ -19,6 +19,7 @@ angular.module('homeCtrl', ['LocalStorageModule'])
 	  		.then(function(response) {
 	  			localStorageService.set('key', response.data.token);
 					localStorageService.set('id', response.data.id);
+					 vm.goTo('/feed');
 	  		})
 	  		.catch(function(err) {
 	  			console.log(err);
