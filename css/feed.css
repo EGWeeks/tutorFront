@@ -1,6 +1,14 @@
 /******* Feed ********/
 
 /***** posts *****/
+.searchTool span {
+	background-color: #FFF;
+}
+
+.searchTool input {
+	border-right-style: none;
+}
+
 .firstCol {
 	text-align: center;
 }
@@ -8,6 +16,7 @@
 .thumbImg {
 	height: 80px;
 	width: 80px;
+	margin: 5px;
 }
 
 .post {
