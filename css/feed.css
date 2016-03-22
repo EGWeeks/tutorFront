@@ -1,6 +1,10 @@
 /******* Feed ********/
 
 /***** posts *****/
+.firstCol {
+	text-align: center;
+}
+
 .thumbImg {
 	height: 80px;
 	width: 80px;
@@ -16,4 +20,20 @@
 .post:not(:first-child) {
 	margin-top: 20px;
 }
+
+.headStudent {
+	background-color: blue;
+	color: white;
+	width: 90%;
+	height: 5px;
+}
+
+.headTutor {
+	background-color: yellow;
+	color: white;
+	width: 90%;
+	height: 5px;
+}
+
+
 

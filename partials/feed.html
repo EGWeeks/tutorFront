@@ -1,8 +1,13 @@
 
 <div class='container core'>
 	<div class='row post' ng-repeat='post in FC.postings | postByRecent' >
-		<div class='col-md-2'>
-			<img class ='thumbImg' ng-src='{{ post.img }}' alt='profile photo' />
+		<div class='col-md-1 firstCol'>
+			<div class='row'>
+				<img class ='thumbImg' ng-src='{{ post.img }}' alt='profile photo' />
+			</div>
+			<div class='row'>
+				<h5>{{ post.first_name }} {{ post.last_name }}</h5>
+			</div>
 		</div>
 		<div class='col-md-3'>
 			<div class='row'>
