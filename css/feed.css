@@ -44,5 +44,11 @@
 	height: 5px;
 }
 
+#map {
+	padding-top: 10px;
+	height: 500px;
+	width: 100%;
+}
+
 
 
