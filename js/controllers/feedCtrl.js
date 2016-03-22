@@ -1,9 +1,9 @@
 'use strict';
 
-angular.module('feedCtrl', [])
-	.controller('feedCtrl', ['feedSrc',FeedCtrl]);
+angular.module('feedCtrl', ['ngMap'])
+	.controller('feedCtrl', ['feedSrc', 'NgMap', FeedCtrl]);
 
-	function FeedCtrl(feedSrc) {
+	function FeedCtrl(feedSrc, NgMap) {
 
 	  var vm = this;
 
@@ -17,4 +17,13 @@ angular.module('feedCtrl', [])
 	  			console.log(err);
 	  		});
 	  })();
+
+	  vm.getMap = (function() {
+		  NgMap.getMap().then(function(map) {
+		  	console.log(map.getCenter());
+	    	console.log('markers', map.markers);
+	    	console.log('shapes', map.shapes);
+		  });
+	  })();
+	  
 	}
