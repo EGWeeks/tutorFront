@@ -18,6 +18,11 @@
 			</div> 
 			<div class='row'>
 				<div class='col-md-6'>
+					<h4>{{ PC.zip }}</h4>
+				</div>
+			</div> 
+			<div class='row'>
+				<div class='col-md-6'>
 					<h4>{{ PC.email }}</h4>
 				</div>
 			</div> 
@@ -80,7 +85,11 @@
 	      <label for="exampleInputLocation1">Location</label>
 	      <input type="text" class="form-control" ng-model='PC.area'required />
 	    </div>
-	    <button type="submit" class="btn btn-default" ng-click="edit = !edit; PC.editUser(PC.first, PC.last, PC.email)">Submit</button>
+	    <div class="form-group">
+	      <label for="exampleInputLocation1">Zip code</label>
+	      <input type="text" class="form-control" ng-model='PC.zip'required />
+	    </div>
+	    <button type="submit" class="btn btn-default" ng-click="edit = !edit; PC.editUser(PC.first, PC.last, PC.email, PC.img, PC.bio, PC.area, PC.zip)">Submit</button>
 	  </form>
 	</div>
 	<div class='col-md-3'>

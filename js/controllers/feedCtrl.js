@@ -1,9 +1,9 @@
 'use strict';
 
-angular.module('feedCtrl', ['ngMap', 'LocalStorageModule'])
-	.controller('feedCtrl', ['feedSrc', 'NgMap', 'localStorageService', FeedCtrl]);
+angular.module('feedCtrl', ['LocalStorageModule'])
+	.controller('feedCtrl', ['feedSrc','localStorageService', FeedCtrl]);
 
-	function FeedCtrl(feedSrc, NgMap, localStorageService) {
+	function FeedCtrl(feedSrc, localStorageService) {
 
 	  var vm = this;
 	  vm.area = localStorageService.get('area');
@@ -28,9 +28,5 @@ angular.module('feedCtrl', ['ngMap', 'LocalStorageModule'])
 	  			console.log(err);
 	  		});
 	  })();
-
-    vm.getRadius = function() {
-      return Math.sqrt(100) * 100;
-    };
 
 	}

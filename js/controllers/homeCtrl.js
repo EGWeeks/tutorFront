@@ -11,22 +11,42 @@ angular.module('homeCtrl', ['LocalStorageModule'])
 	  	$location.path(route);
 	  };
 
-	  vm.signUp = function(first, last, email, img, bio, area, pass) {
+	  vm.signUp = function(first, last, email, img, bio, area, zip, pass) {
+	  	//set default picture if undefined
 	  	if(img === undefined) {
 	  		img = 'img/default.png';
 	  	}
-	  	homeSrc.signUp(first, last, email, img, bio, area, pass)
-	  		.then(function(response) {
-	  			localStorageService.set('key', response.data.token);
-					localStorageService.set('id', response.data.id);
-					localStorageService.set('area', response.data.location);
-					// Invoke goTo function after the server has returned with token
-					// /feed requires token
-					vm.goTo('/feed');
-	  		})
-	  		.catch(function(err) {
-	  			console.log(err);
-	  		});
+	  	// New geocoder object 
+	  	var geoCoder = new google.maps.Geocoder();
+	  	// geocode by zip
+	  	// send the returned lat and lng
+	  	// to the server to be stores with user info
+	  	geoCoder.geocode({address: zip}, function(results, status) {
+	  		console.log(status);
+
+	  		var lat = results[0].geometry.location.lat();
+	  		var lng = results[0].geometry.location.lng();
+
+	  		if(status === 'OK') {
+	  			console.log(zip);
+		  		homeSrc.signUp(first, last, email, img, bio, area, zip, lat, lng, pass)
+		  		.then(function(response) {
+		  			localStorageService.set('key', response.data.token);
+						localStorageService.set('id', response.data.id);
+						localStorageService.set('area', response.data.location);
+						// Invoke goTo function after the server has returned with token
+						// /feed requires token
+						vm.goTo('/feed');
+		  		})
+		  		.catch(function(err) {
+		  			console.log(err);
+		  		});
+	  		} else {
+	  			alert("Could not find location: " + zip);
+	  		}
+	  	});
+
+	  	
 	  };
 
 	  vm.logIn = function(email, pass) {

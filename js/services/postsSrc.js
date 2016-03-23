@@ -5,12 +5,12 @@ angular.module('postsSrc', [])
 
 	function PostsSrc($http, $routeParams){
 
-		this.createPost = function(sub, typ, desc, avail, cost, id) {
+		this.createPost = function(sport, typ, desc, avail, cost, id) {
 			return $http({
 				method: 'POST',
 				url: 'http://localhost:3000/posts',
 				data: {
-					subject: sub,
+					sport: sport,
 					type: typ,
 					rate: cost,
 					avail: avail,
@@ -34,13 +34,13 @@ angular.module('postsSrc', [])
 			});
 		};
 
-		this.editPost = function(status, sub, typ, desc, avail, cost) {
+		this.editPost = function(status, sport, typ, desc, avail, cost) {
 			return $http({
 				method: 'PUT',
 				url: 'http://localhost:3000/posts/my/' + $routeParams.id + '/' + $routeParams.post,
 				data: {
 					status: status,
-					subject: sub,
+					sport: sport,
 					type: typ,
 					rate: cost,
 					avail: avail,

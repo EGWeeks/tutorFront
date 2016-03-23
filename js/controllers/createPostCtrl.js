@@ -29,12 +29,12 @@ angular.module('createPostCtrl' , ['LocalStorageModule'])
 				});
 		};
 
-		vm.createPosts = function(subject, type, desc, avail, rate) {
+		vm.createPosts = function(sport, type, desc, avail, rate) {
 			if(rate === undefined) {
 	  		rate = 'n/a';
 	  	}
 			var userId = localStorageService.get('id');
-			postsSrc.createPost(subject, type, desc, avail, rate, userId)
+			postsSrc.createPost(sport, type, desc, avail, rate, userId)
 				.then(function(response) {
 					console.log(response);
 					vm.goTo('/feed');
@@ -55,8 +55,8 @@ angular.module('createPostCtrl' , ['LocalStorageModule'])
 				});
 		};
 
-		vm.editPost = function(status, sub, typ, desc, avail, cost) {
-			postsSrc.editPost(status, sub, typ, desc, avail, cost)
+		vm.editPost = function(status, sport, typ, desc, avail, cost) {
+			postsSrc.editPost(status, sport, typ, desc, avail, cost)
 				.then(function(response) {
 					console.log(response);
 					vm.goTo("posts/my/" + vm.singlePost.user_id);

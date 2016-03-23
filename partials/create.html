@@ -4,16 +4,16 @@
   <div class='col-md-6'>
     <form>
       <div class="form-group">
-        <label for="first name">Subject</label>
-        <input type="text" class="form-control" placeholder="Math" ng-model='CPC.subject' required />
+        <label for="first name">Sport</label>
+        <input type="text" class="form-control" placeholder="Math" ng-model='CPC.sport' required />
       </div>
       <div class="form-group">
         <label for='type'>Looking for : </label>
         <label class="radio-inline">
-          <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="tutor" ng-model='CPC.type' /> Tutor
+          <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="Instructor" ng-model='CPC.type' /> Instructor
         </label>
         <label class="radio-inline">
-          <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="student" ng-model='CPC.type' /> Student
+          <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="Student" ng-model='CPC.type' /> Student
         </label>
       </div>
       <div class="form-group">
@@ -28,7 +28,7 @@
         <label for="exampleInputRate1">Hourly rate</label>
         <input type="text" class="form-control" placeholder="20.00" ng-model='CPC.rate' />
       </div>
-      <button type="submit" class="btn btn-default" ng-click="CPC.createPosts(CPC.subject, CPC.type, CPC.desc, CPC.avail, CPC.rate)">Post</button>
+      <button type="submit" class="btn btn-default" ng-click="CPC.createPosts(CPC.sport, CPC.type, CPC.desc, CPC.avail, CPC.rate)">Post</button>
     </form>
   </div>
   <div class='col-md-3'>

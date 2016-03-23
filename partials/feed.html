@@ -2,18 +2,7 @@
 <div class='container core'>
 	<div class='row'>
 		<div class='col-md-8'>
-		  <ng-map id='map' center="{{ FC.area }}" zoom="11" mayTypeId="TERRAIN" streetViewControl='false' >
-		    <shape name="circle" ng-repeat="local in FC.location" 
-		    	no-watcher="true"
-		      stroke-color="#0066ff"
-		      stroke-opacity="0.8"
-		      stroke-weight="2"
-		      fill-color="#0066ff"
-		      fill-opacity="0.35"
-		      center="{{ local.location }}"
-		      radius="{{ FC.getRadius() }}">
-		    </shape>
-		  </ng-map>
+			<!-- MAP -->
 		</div>
 		<div class='col-md-4'>
 			<div class='row post' ng-repeat='post in FC.postings | postByRecent' >

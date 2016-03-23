@@ -19,7 +19,7 @@ angular.module('profileSrc', [])
 			});
 		};
 
-		this.editUserById = function(first, last, email, bio, area, image) {
+		this.editUserById = function(first, last, email, bio, area, zip, image) {
 			return $http({
 				method: 'PUT',
 				url: 'http://localhost:3000/profile/' + $routeParams.id,
@@ -29,6 +29,7 @@ angular.module('profileSrc', [])
 					email: email,
 					bio: bio,
 					area: area,
+					zip: zip,
 					img: image
 				}
 			});
