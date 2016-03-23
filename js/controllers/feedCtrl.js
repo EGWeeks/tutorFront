@@ -1,11 +1,12 @@
 'use strict';
 
-angular.module('feedCtrl', ['ngMap'])
-	.controller('feedCtrl', ['feedSrc', 'NgMap', FeedCtrl]);
+angular.module('feedCtrl', ['ngMap', 'LocalStorageModule'])
+	.controller('feedCtrl', ['feedSrc', 'NgMap', 'localStorageService', FeedCtrl]);
 
-	function FeedCtrl(feedSrc, NgMap) {
+	function FeedCtrl(feedSrc, NgMap, localStorageService) {
 
 	  var vm = this;
+	  vm.area = localStorageService.get('area');
 
 	  vm.getTopFeed = (function() {
 	  	feedSrc.getTopFeed()

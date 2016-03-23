@@ -2,7 +2,7 @@
 <div class='container core'>
 	<div class='row'>
 		<div class='col-md-8'>
-		  <ng-map id='map' center="Fort Collins, CO" zoom="12" mayTypeId="TERRAIN" streetViewControl='false' >
+		  <ng-map id='map' center="{{ FC.area }}" zoom="11" mayTypeId="TERRAIN" streetViewControl='false' >
 		    <shape name="circle" ng-repeat="local in FC.location" 
 		    	no-watcher="true"
 		      stroke-color="#0066ff"
