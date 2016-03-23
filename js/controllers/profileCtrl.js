@@ -22,6 +22,7 @@ angular.module('profileCtrl', ['LocalStorageModule'])
 	  			vm.email = data.email;
 	  			vm.bio = data.bio;
 	  			vm.area = data.location;
+	  			vm.zip = data.zip;
 	  			vm.img = data.img;
 
 	  		})
@@ -41,18 +42,37 @@ angular.module('profileCtrl', ['LocalStorageModule'])
 	  		});
 	  };
 
-	  vm.editUser = function(first, last, email, bio, area, img) {
+	  vm.editUser = function(first, last, email, bio, area, zip, img) {
 
 	  	if(img === undefined) {
 	  		img = 'img/default.png';
 	  	}
-	  	profileSrc.editUserById(first, last, email, bio, area, img)
-	  		.then(function(response) {
-	  			console.log(response);
-	  		})
-	  		.catch(function(err) {
-	  			console.log(err);
-	  		});
+
+	  	// New geocoder object 
+	  	var geoCoder = new google.maps.Geocoder();
+	  	// geocode by zip
+	  	// send the returned lat and lng
+	  	// to the server to be stores with user info
+	  	geoCoder.geocode({address: zip}, function(results, status) {
+
+	  		var lat = results[0].geometry.location.lat();
+	  		var lng = results[0].geometry.location.lng();
+	  		// if gecode return ok run the service and hit the server
+	  		if(status === 'OK') {
+
+			  	profileSrc.editUserById(first, last, email, bio, area, zip, lat, lng, img)
+			  		.then(function(response) {
+			  			console.log(response);
+			  		})
+			  		.catch(function(err) {
+			  			console.log(err);
+			  		});
+
+	  		} else {
+	  			alert("Could not find location: " + zip);
+	  		}
+	  	});
 	  };
 	  
 	}
+

@@ -25,9 +25,9 @@ angular.module('homeCtrl', ['LocalStorageModule'])
 
 	  		var lat = results[0].geometry.location.lat();
 	  		var lng = results[0].geometry.location.lng();
-
+	  		// if gecode return ok run the service and hit the server
 	  		if(status === 'OK') {
-	  			console.log(zip);
+
 		  		homeSrc.signUp(first, last, email, img, bio, area, zip, lat, lng, pass)
 		  		.then(function(response) {
 		  			localStorageService.set('key', response.data.token);
