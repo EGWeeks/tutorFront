@@ -5,10 +5,17 @@ angular.module('feedSrc', [])
 
 	function FeedSrc($http){
 
-		this.getFeed = function() {
+		this.getTopFeed = function() {
 			return $http({
 				method: 'GET',
 				url: 'http://localhost:3000/feed'
+			});
+		};
+
+		this.getAllLocations = function() {
+			return $http({
+				method: 'GET',
+				url: 'http://localhost:3000/feed/location'
 			});
 		};
 

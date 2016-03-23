@@ -7,10 +7,9 @@ angular.module('feedCtrl', ['ngMap'])
 
 	  var vm = this;
 
-	  vm.getFeed = (function() {
-	  	feedSrc.getFeed()
+	  vm.getTopFeed = (function() {
+	  	feedSrc.getTopFeed()
 	  		.then(function(response){
-	  			console.log(response.data.posts);
 	  			vm.postings = response.data.posts;
 	  		})
 	  		.catch(function(err){
@@ -18,12 +17,19 @@ angular.module('feedCtrl', ['ngMap'])
 	  		});
 	  })();
 
-	  vm.getMap = (function() {
-		  NgMap.getMap().then(function(map) {
-		  	console.log(map.getCenter());
-	    	console.log('markers', map.markers);
-	    	console.log('shapes', map.shapes);
-		  });
+	  vm.getAllLocations = (function() {
+	  	feedSrc.getAllLocations()
+	  		.then(function(response) {
+	  			console.log(response);
+	  			vm.location = response.data.users;
+	  		})
+	  		.catch(function(err) {
+	  			console.log(err);
+	  		});
 	  })();
-	  
+
+    vm.getRadius = function() {
+      return Math.sqrt(100) * 100;
+    };
+
 	}
