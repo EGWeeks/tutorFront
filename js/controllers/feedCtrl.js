@@ -48,12 +48,24 @@ angular.module('feedCtrl', ['LocalStorageModule'])
     	};
 
     	vm.map = new google.maps.Map(document.getElementById('map'), mapOptions);
-
+    	console.log(locations);
     	locations.forEach(function(obj) {
+    		var icon;
+    		if(obj.sport === 'Biking') {
+    			icon = 'img/biking.png';
+    		} else if (obj.sport === 'Kayaking') {
+    			icon = 'img/kayak.png';
+    		} else if (obj.sport === 'Skiing') {
+    			icon = 'img/skiing.png';
+    		} else {
+    			icon = '';
+    		}
+
     		var latLng = new google.maps.LatLng(parseFloat(obj.lat), parseFloat(obj.lng));
     		var marker = new google.maps.Marker({
     			position: latLng,
-    			title: obj.location
+    			title: obj.location,
+    			icon: icon
     		});
 
     		marker.setMap(vm.map);
