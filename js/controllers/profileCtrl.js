@@ -18,12 +18,12 @@ angular.module('profileCtrl', ['LocalStorageModule'])
 	  			var data = response.data.user;
 
 	  			vm.firstName = data.first_name;
-	  			vm.lastName = data.last_name;
-	  			vm.email = data.email;
-	  			vm.bio = data.bio;
-	  			vm.area = data.location;
-	  			vm.zip = data.zip;
-	  			vm.img = data.img;
+	  			vm.lastName  = data.last_name;
+	  			vm.email 		 = data.email;
+	  			vm.bio 			 = data.bio;
+	  			vm.area 		 = data.location;
+	  			vm.zip 			 = data.zip;
+	  			vm.img 			 = data.img;
 
 	  		})
 	  		.catch(function(err) {
