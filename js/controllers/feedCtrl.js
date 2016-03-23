@@ -23,7 +23,7 @@ angular.module('feedCtrl', ['LocalStorageModule'])
 	  	feedSrc.getAllLocations()
 	  		.then(function(response) {
 	  			vm.location = response.data.users;
-
+	  			console.log(vm.location);
 	  			vm.getMap(vm.location);
 	  		})
 	  		.catch(function(err) {
@@ -48,5 +48,16 @@ angular.module('feedCtrl', ['LocalStorageModule'])
     	};
 
     	vm.map = new google.maps.Map(document.getElementById('map'), mapOptions);
-	  };
+
+    	locations.forEach(function(obj) {
+    		var latLng = new google.maps.LatLng(parseFloat(obj.lat), parseFloat(obj.lng));
+    		var marker = new google.maps.Marker({
+    			position: latLng,
+    			title: obj.location
+    		});
+
+    		marker.setMap(vm.map);
+    	});
+    	
+ 	  };
 	}

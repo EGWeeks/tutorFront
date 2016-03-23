@@ -2,12 +2,12 @@
 <div class='container core'>
 	<div class='row'>
 		<div class='col-md-8'>
-			<!-- MAP -->
 			<div id='map'>
 			</div>
 		</div>
 		<div class='col-md-4'>
-			<div class='row post' ng-repeat='post in FC.postings | postByRecent' >
+			<!-- Filter ng repeat results '| postByRecent' -->
+			<div class='row post' ng-repeat='post in FC.postings ' >
 				<div class='col-md-4 firstCol'>
 					<div class='row'>
 						<img class ='thumbImg' ng-src='{{ post.img }}' alt='profile photo' />
@@ -32,11 +32,10 @@
 						<a href='mailto:{{ post.email }}'><h5>Contact User</h5></a>
 					</div>
 					<div class='row'>
-						<h5>Created On: {{ post.created_at | dateFilter }}</h5>
+						<h5>Created On: {{ post.created_at | dateFilter}}</h5>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-	
 </div>
