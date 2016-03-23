@@ -7,6 +7,7 @@ angular.module('feedCtrl', ['LocalStorageModule'])
 
 	  var vm = this;
 	  vm.area = localStorageService.get('area');
+	  
 
 	  vm.getTopFeed = (function() {
 	  	feedSrc.getTopFeed()
@@ -21,12 +22,31 @@ angular.module('feedCtrl', ['LocalStorageModule'])
 	  vm.getAllLocations = (function() {
 	  	feedSrc.getAllLocations()
 	  		.then(function(response) {
-	  			console.log(response);
 	  			vm.location = response.data.users;
+
+	  			vm.getMap(vm.location);
 	  		})
 	  		.catch(function(err) {
 	  			console.log(err);
 	  		});
 	  })();
 
+	  vm.getMap = function(locations) {
+
+	  	var latLng = vm.area.split(',');
+	 
+
+	  	var mapOptions = {
+        zoom: 11,
+        center: new google.maps.LatLng(parseFloat(latLng[0]), parseFloat(latLng[1]) ),
+        mapTypeId: google.maps.MapTypeId.TERRAIN,
+        zoomControl: false,
+        mapTypeControl: false,
+			  scaleControl: false,
+			  streetViewControl: false,
+			  rotateControl: false
+    	};
+
+    	vm.map = new google.maps.Map(document.getElementById('map'), mapOptions);
+	  };
 	}
