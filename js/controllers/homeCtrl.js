@@ -22,7 +22,6 @@ angular.module('homeCtrl', ['LocalStorageModule'])
 	  	// send the returned lat and lng
 	  	// to the server to be stores with user info
 	  	geoCoder.geocode({address: zip}, function(results, status) {
-	  		console.log(status);
 
 	  		var lat = results[0].geometry.location.lat();
 	  		var lng = results[0].geometry.location.lng();

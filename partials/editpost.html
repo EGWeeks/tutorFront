@@ -4,8 +4,15 @@
   <div class='col-md-6'>
     <form>
       <div class="form-group">
-        <label for="first name">Sport</label>
-        <input type="text" class="form-control" ng-model='CPC.singlePost.sport' required />
+        <label  for="first name">Sport</label>
+        <select class="form-control" ng-init='CPC.singlePost.sport = options[0]' ng-model='CPC.singlePost.sport' required >
+          <option value='Biking' >Biking</option>
+          <option value='Climbing' >Climbing</option>
+          <option value='Fishing' >Fishing</option>
+          <option value='kayaking' >Kayaking</option>
+          <option value='Skiing' >Skiing</option>
+          <option value='Snowboarding' >Snowboarding</option>
+        </select>
       </div>
       <div class="form-group">
         <label for='type'>Looking for : </label>
@@ -24,7 +31,7 @@
         <label for="exampleInputPassword1">Available</label>
         <input type="text" class="form-control" ng-model='CPC.singlePost.avail' required />
       </div>
-      <div class="form-group" ng-show='CPC.singlePost.type == "student"' >
+      <div class="form-group" ng-show='CPC.singlePost.type == "Student"' >
         <label for="exampleInputRate1">Hourly rate</label>
         <input type="text" class="form-control" ng-model='CPC.singlePost.rate' />
       </div>

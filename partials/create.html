@@ -4,8 +4,15 @@
   <div class='col-md-6'>
     <form>
       <div class="form-group">
-        <label for="first name">Sport</label>
-        <input type="text" class="form-control" placeholder="Math" ng-model='CPC.sport' required />
+        <label  for="first name">Sport</label>
+        <select class="form-control" ng-model='CPC.sport' required >
+          <option value='Biking' >Biking</option>
+          <option value='Climbing' >Climbing</option>
+          <option value='Fishing' >Fishing</option>
+          <option value='kayaking' >Kayaking</option>
+          <option value='Skiing' >Skiing</option>
+          <option value='Snowboarding' >Snowboarding</option>
+        </select>
       </div>
       <div class="form-group">
         <label for='type'>Looking for : </label>
@@ -18,13 +25,13 @@
       </div>
       <div class="form-group">
         <label for="exampleInputDesc1">Description</label>
-        <textarea class="form-control" placeholder="I need a help with math 230 discrete math course..." ng-model='CPC.desc' ></textarea>
+        <textarea class="form-control" placeholder="I am getting into mountain biking and would like some guidance with..." ng-model='CPC.desc' ></textarea>
       </div>
       <div class="form-group">
         <label for="exampleInputPassword1">Available</label>
         <input type="text" class="form-control" placeholder="Mondays and Wednesday after 6 PM" ng-model='CPC.avail' required />
       </div>
-      <div class="form-group" ng-show='CPC.type == "student"' >
+      <div class="form-group" ng-show='CPC.type == "Student"' >
         <label for="exampleInputRate1">Hourly rate</label>
         <input type="text" class="form-control" placeholder="20.00" ng-model='CPC.rate' />
       </div>
