@@ -81,12 +81,16 @@ angular.module('feedCtrl', ['LocalStorageModule'])
  	  };
 
  	  vm.markerListener = function(marker, id) {
-	  	var infoWindow = new google.maps.InfoWindow({
-	  		content: id
-	  	});
 
 	  	marker.addListener('click', function() {
-	  		infoWindow.open(marker.get('map'), marker);
+	  		feedSrc.getPostById(id)
+	  			.then(function(response) {
+	  				vm.postings = response.data.post;
+	  			})
+	  			.catch(function(err) {
+	  				console.log(err);
+	  			});
 	  	});
 	  };
+
 	}

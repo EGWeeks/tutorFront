@@ -19,4 +19,11 @@ angular.module('feedSrc', [])
 			});
 		};
 
+		this.getPostById = function(postId) {
+			return $http({
+				method: 'GET',
+				url: 'http://localhost:3000/feed/' + postId
+			});
+		};
+
 	}
