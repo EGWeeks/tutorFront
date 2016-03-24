@@ -23,7 +23,6 @@ angular.module('feedCtrl', ['LocalStorageModule'])
 	  	feedSrc.getAllLocations()
 	  		.then(function(response) {
 	  			vm.location = response.data.users;
-	  			console.log(vm.location);
 	  			vm.getMap(vm.location);
 	  		})
 	  		.catch(function(err) {
@@ -48,28 +47,46 @@ angular.module('feedCtrl', ['LocalStorageModule'])
     	};
 
     	vm.map = new google.maps.Map(document.getElementById('map'), mapOptions);
-    	console.log(locations);
+
+    	// Loop for locations array to make markers for each
+    	// location lat and long
     	locations.forEach(function(obj) {
     		var icon;
-    		if(obj.sport === 'Biking') {
+    		if (obj.sport === 'Biking') {
     			icon = 'img/biking.png';
     		} else if (obj.sport === 'Kayaking') {
     			icon = 'img/kayak.png';
     		} else if (obj.sport === 'Skiing') {
     			icon = 'img/skiing.png';
+    		} else if (obj.sport === 'Fishing') {
+    			icon = 'img/fishing.png';
+    		} else if (obj.sport === 'Climbing') {
+    			icon = 'img/climbing.png';
     		} else {
-    			icon = '';
+    			icon = 'img/Snowboarding.png';
     		}
 
     		var latLng = new google.maps.LatLng(parseFloat(obj.lat), parseFloat(obj.lng));
-    		var marker = new google.maps.Marker({
+    		vm.marker = new google.maps.Marker({
     			position: latLng,
     			title: obj.location,
-    			icon: icon
+    			icon: icon,
+    			draggable: true
     		});
 
-    		marker.setMap(vm.map);
+    		vm.marker.setMap(vm.map);
+    		vm.markerListener(vm.marker, obj.id.toString());
     	});
-    	
+
  	  };
+
+ 	  vm.markerListener = function(marker, id) {
+	  	var infoWindow = new google.maps.InfoWindow({
+	  		content: id
+	  	});
+
+	  	marker.addListener('click', function() {
+	  		infoWindow.open(marker.get('map'), marker);
+	  	});
+	  };
 	}
