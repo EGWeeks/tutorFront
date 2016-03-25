@@ -51,11 +51,12 @@ angular.module('feedCtrl', ['LocalStorageModule'])
     	// Loop for locations array to make markers for each
     	// location lat and long
     	locations.forEach(function(obj) {
+    		
     		var icon;
     		if (obj.sport === 'Biking') {
     			icon = 'img/biking.png';
     		} else if (obj.sport === 'Kayaking') {
-    			icon = 'img/kayak.png';
+    			icon = 'img/kayaking.png';
     		} else if (obj.sport === 'Skiing') {
     			icon = 'img/skiing.png';
     		} else if (obj.sport === 'Fishing') {
