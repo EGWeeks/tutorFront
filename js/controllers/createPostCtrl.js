@@ -40,8 +40,8 @@ angular.module('createPostCtrl' , ['LocalStorageModule'])
 
 			// if user does not move marker the lat long and
 			if(vm.lat === undefined) {
-				vm.lat = vm.cords[0];
-				vm.lng = vm.cords[1];
+				vm.lat = parseFloat(vm.cords[0]);
+				vm.lng = parseFloat(vm.cords[1]);
 			}
 			// Obj to send to geocode
 			var latLngObj = { lat: vm.lat, lng: vm.lng};
@@ -56,7 +56,6 @@ angular.module('createPostCtrl' , ['LocalStorageModule'])
 
 	        postsSrc.createPost(sport, type, desc, avail, rate, userId, formatLocation, vm.lat, vm.lng)
 						.then(function(response) {
-							console.log(response);
 							vm.goTo('/feed');
 						})
 						.catch(function(err) {
