@@ -36,10 +36,16 @@
         <input type="text" class="form-control" ng-model='CPC.singlePost.rate' />
       </div>
       <div class="form-group">
+        <label>Location for posting</label>
+        <p>*Move the marker to assign a location</p>
+        <div id='createMap'>
+        </div>
+      </div>
+      <div class="form-group">
         <label>Created on:</label>
-        	{{ CPC.singlePost.created_at | dateFilter }}
+        	{{ CPC.singlePost.created_at }}
         <label>Expires on:</label>
-        	{{ CPC.singlePost.expiration | dateFilter }}
+        	{{ CPC.singlePost.expiration }}
       </div>
       <p>*Editing posts will automatically update created on and expiration dates</p>
       <button type="submit" class="btn btn-default" ng-click="CPC.editPost('Active', CPC.singlePost.sport, CPC.singlePost.type, CPC.singlePost.desc, CPC.singlePost.avail, CPC.singlePost.rate)">Post</button>

@@ -76,6 +76,7 @@ angular.module('createPostCtrl' , ['LocalStorageModule'])
 				.then(function(response)  {
 					console.log(response);
 					vm.singlePost = response.data.post;
+					vm.getMap();
 				})
 				.catch(function(err) {
 					console.log(err);
@@ -93,9 +94,20 @@ angular.module('createPostCtrl' , ['LocalStorageModule'])
 				});
 		};
 
-		vm.getMap = function(locations) {
+		// Map function gets used in creating post and editing posts
+		vm.getMap = function() {
 
-	  	vm.cords = vm.area.split(',');
+			if($location.url() !== '/create') {
+				// vm.singlePost is the return obj form getPostByPostId()
+				// post lat lng
+				vm.cords = [vm.singlePost.lat, vm.singlePost.lng];
+			} else {
+				// vm.area is user lat lng 
+				vm.cords = vm.area.split(',');
+			}
+			
+
+	  	
 	 
 
 	  	var mapOptions = {
