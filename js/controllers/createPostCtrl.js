@@ -102,7 +102,10 @@ angular.module('createPostCtrl' , ['LocalStorageModule'])
         zoom: 11,
         center: new google.maps.LatLng(parseFloat(vm.cords[0]), parseFloat(vm.cords[1]) ),
         mapTypeId: google.maps.MapTypeId.TERRAIN,
-        zoomControl: false,
+        zoomControl: true,
+        zoomControlOptions: {
+			  	position: google.maps.ControlPosition.LEFT_BOTTOM
+			  },
         mapTypeControl: false,
 			  scaleControl: false,
 			  streetViewControl: false,
