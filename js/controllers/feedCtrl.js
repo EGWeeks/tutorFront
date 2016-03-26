@@ -23,6 +23,7 @@ angular.module('feedCtrl', ['LocalStorageModule'])
 	  	feedSrc.getAllLocations()
 	  		.then(function(response) {
 	  			vm.location = response.data.users;
+	  			//create MAP & markers
 	  			vm.getMap(vm.location);
 	  		})
 	  		.catch(function(err) {
@@ -30,6 +31,7 @@ angular.module('feedCtrl', ['LocalStorageModule'])
 	  		});
 	  })();
 
+	  // Invoke in getAllLocations ^
 	  vm.getMap = function(locations) {
 
 	  	var latLng = vm.area.split(',');

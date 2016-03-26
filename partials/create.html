@@ -35,6 +35,11 @@
         <label for="exampleInputRate1">Hourly rate</label>
         <input type="text" class="form-control" placeholder="20.00" ng-model='CPC.rate' />
       </div>
+      <!-- MAP -->
+      <div class="form-group" ng-init='CPC.getMap()'>
+        <div id='createMap'>
+        </div>
+      </div>
       <button type="submit" class="btn btn-default" ng-click="CPC.createPosts(CPC.sport, CPC.type, CPC.desc, CPC.avail, CPC.rate)">Post</button>
     </form>
   </div>
