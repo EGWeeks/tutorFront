@@ -5,7 +5,7 @@ angular.module('postsSrc', [])
 
 	function PostsSrc($http, $routeParams){
 
-		this.createPost = function(sport, typ, desc, avail, cost, id) {
+		this.createPost = function(sport, typ, desc, avail, cost, id, location, lat, lng) {
 			return $http({
 				method: 'POST',
 				url: 'http://localhost:3000/posts',
@@ -15,7 +15,10 @@ angular.module('postsSrc', [])
 					rate: cost,
 					avail: avail,
 					desc: desc, 
-					user_id: id
+					user_id: id,
+					location: location,
+					lat: lat,
+					lng: lng
 				}
 			});
 		};

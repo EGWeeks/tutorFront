@@ -31,18 +31,44 @@ angular.module('createPostCtrl' , ['LocalStorageModule'])
 		};
 
 		vm.createPosts = function(sport, type, desc, avail, rate) {
+			// assign rate a value if not specified
 			if(rate === undefined) {
 	  		rate = 'n/a';
 	  	}
+	  	// get user id to send to server
 			var userId = localStorageService.get('id');
-			postsSrc.createPost(sport, type, desc, avail, rate, userId)
-				.then(function(response) {
-					console.log(response);
-					vm.goTo('/feed');
-				})
-				.catch(function(err) {
-					console.log(err);
-				});
+
+			// if user does not move marker the lat long and
+			if(vm.lat === undefined) {
+				vm.lat = vm.cords[0];
+				vm.lng = vm.cords[1];
+			}
+			// Obj to send to geocode
+			var latLngObj = { lat: vm.lat, lng: vm.lng};
+			// create new geocode
+			var geocoder = new google.maps.Geocoder();
+
+ 	  	geocoder.geocode({location: latLngObj}, function(results, status) {
+ 	  		//Geocode is successful hit service which hits server to store post
+     		if(status === google.maps.GeocoderStatus.OK){
+     			// returning formatted location
+       		var formatLocation = results[1].formatted_address;
+
+	        postsSrc.createPost(sport, type, desc, avail, rate, userId, formatLocation, vm.lat, vm.lng)
+						.then(function(response) {
+							console.log(response);
+							vm.goTo('/feed');
+						})
+						.catch(function(err) {
+							console.log(err);
+						});
+
+       	} else {
+       		alert('Cannot find location');
+       	}
+     	}); 
+
+			
 		};
 
 		vm.getPostByPostId = function() {
@@ -69,12 +95,12 @@ angular.module('createPostCtrl' , ['LocalStorageModule'])
 
 		vm.getMap = function(locations) {
 
-	  	var latLng = vm.area.split(',');
+	  	vm.cords = vm.area.split(',');
 	 
 
 	  	var mapOptions = {
         zoom: 11,
-        center: new google.maps.LatLng(parseFloat(latLng[0]), parseFloat(latLng[1]) ),
+        center: new google.maps.LatLng(parseFloat(vm.cords[0]), parseFloat(vm.cords[1]) ),
         mapTypeId: google.maps.MapTypeId.TERRAIN,
         zoomControl: false,
         mapTypeControl: false,
@@ -86,7 +112,7 @@ angular.module('createPostCtrl' , ['LocalStorageModule'])
     	vm.map = new google.maps.Map(document.getElementById('createMap'), mapOptions);
     		
 
-  		var latLng = new google.maps.LatLng(parseFloat(latLng[0]), parseFloat(latLng[1]));
+  		var latLng = new google.maps.LatLng(parseFloat(vm.cords[0]), parseFloat(vm.cords[1]));
   		vm.marker = new google.maps.Marker({
   			position: latLng,
   			icon: null,
@@ -101,25 +127,22 @@ angular.module('createPostCtrl' , ['LocalStorageModule'])
 	     	
 	     	vm.marker.position[vm.marker.getPosition()];
 
+	     	// gets lat and long out of return functions
 	     	var locationData = JSON.stringify(vm.marker.position);
 
-	     	var locationObject = JSON.parse(locationData);
+	     	// objectify for assignment to vm.lat and vm.lng
+	     	// this is the object we give to gecode for human readability 
+	     	var locationObj = JSON.parse(locationData);
 
-	     	var geocoder = new google.maps.Geocoder();
-	     	vm.lat = locationObject.lat;
-	     	vm.lng = locationObject.lng;
+	     	// lat lng from marker drop by user 
+	     	// will be stored with posting
+	     	vm.lat = locationObj.lat;
+	     	vm.lng = locationObj.lng;
 
-     		geocoder.geocode({'location': locationObject}, function(results, status) {
-       		if(status === google.maps.GeocoderStatus.OK){
-         		vm.location = results[1].formatted_address;
-         		console.log(vm.location);
-       		} else {
-       			alert('Cannot find location');
-       		}
-     		});
+	     	
+     		
 	 		});
- 	  };
-
+ 	  }; // End of getMap
 
 	} // End of CreatePostCtrl
 
