@@ -23,9 +23,14 @@
 
 .feedscroll {
 	background-color: rgba(31, 12, 12, 0.7);
-	overflow: hidden;
+	overflow: auto;
 	max-height: 88vh;
 	overflow-y: auto;
+}
+
+.feedHeader {
+	color: white;
+	text-align: center;
 }
 
 .post {

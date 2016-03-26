@@ -2,11 +2,14 @@
 <div class='container core'>
 	<div id='map'>
 	</div>
-	<a href='#' ng-click='FC.markerListener($event, marker)'></a>
+	<a ng-click='FC.markerListener($event, marker)'></a>
 	<div class='row'>
 		<div class='col-md-8'>
 		</div>
-		<div class='col-md-4 feedscroll'>
+		<div ng-hide='FC.hideFeed' class='col-md-4 feedscroll'>
+			<div class='row'>
+				<h3 class='feedHeader'> Recent Postings </h3>
+			</div>
 			<!-- Filter ng repeat results '| postByRecent' -->
 			<div class='row post' ng-repeat='post in FC.postings ' >
 				<div class='col-md-4 firstCol'>
@@ -36,7 +39,53 @@
 						<h5>Created On: {{ post.created_at | dateFilter}}</h5>
 					</div>
 				</div>
+			</div> <!-- End of indivivual post row -->
+		</div> <!-- End of Feed -->
+		
+		<!-- SINGLE POSTING -->
+		<div ng-hide='!FC.hideFeed' class='col-md-4 feedscroll singlePost'>
+			<div class='row'>
+				<div class='col-md-1'>
+				</div>
+				<div class='col-md-1'>
+					<h3><a ng-click='FC.hideFeed = false' class='glyphicon glyphicon-chevron-left'></a></h3>
+				</div>
+				<div class='col-md-8'>
+					<h3 class='feedHeader'>Single Posting</h3>
+				</div>
+				<div class='col-md-2'>
+				</div>
 			</div>
-		</div>
+			<div class='row post'>
+				<div class='col-md-4 firstCol'>
+					<div class='row'>
+						<img class ='thumbImg' ng-src='{{ FC.singlePost.img }}' alt='profile photo' />
+					</div>
+					<div class='row'>
+						<h5>{{ FC.singlePost.first_name }} {{ FC.singlePost.last_name }}</h5>
+					</div>
+				</div>
+				<div class='col-md-4'>
+					<div class='row'>
+						<h5>Looking For: {{ FC.singlePost.type }}</h5>
+					</div>
+					<div class='row'>
+						<h5>Sport: {{ FC.singlePost.sport }}</h5>
+					</div>
+					<div class='row'>
+						<h5>{{ FC.singlePost.location }}</h5>
+					</div>
+				</div>
+				<div class='col-md-4'>
+					<div class='row'>
+						<a href='mailto:{{ post.email }}'><h5>Contact User</h5></a>
+					</div>
+				</div>
+				<div class='row'>
+					<h5>Description:</h5>
+					<p>{{ FC.singlePost.desc }}</p>
+				</div>
+			</div> <!-- End of indivivual post row -->
+		</div> <!-- End of Feed -->
 	</div>
 </div>

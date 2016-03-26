@@ -12,6 +12,7 @@ angular.module('feedCtrl', ['LocalStorageModule'])
 	  vm.getTopFeed = (function() {
 	  	feedSrc.getTopFeed()
 	  		.then(function(response){
+	  			vm.hideFeed = false;
 	  			vm.postings = response.data.posts;
 	  		})
 	  		.catch(function(err){
@@ -77,6 +78,7 @@ angular.module('feedCtrl', ['LocalStorageModule'])
     			position: latLng,
     			title: obj.location,
     			icon: icon,
+    			animation: google.maps.Animation.DROP,
     			draggable: true
     		});
 
@@ -89,9 +91,13 @@ angular.module('feedCtrl', ['LocalStorageModule'])
  	  vm.markerListener = function(marker, id) {
 
 	  	marker.addListener('click', function() {
+	  		
+				vm.hideFeed = true;
+
 	  		feedSrc.getPostById(id)
 	  			.then(function(response) {
-	  				vm.postings = response.data.post;
+	  				console.log(response);
+	  				vm.singlePost = response.data.post[0];
 	  			})
 	  			.catch(function(err) {
 	  				console.log(err);
