@@ -37,7 +37,7 @@ angular.module('postsSrc', [])
 			});
 		};
 
-		this.editPost = function(status, sport, typ, desc, avail, cost) {
+		this.editPost = function(status, sport, typ, desc, avail, cost, location, lat, lng) {
 			return $http({
 				method: 'PUT',
 				url: 'http://localhost:3000/posts/my/' + $routeParams.id + '/' + $routeParams.post,
@@ -47,7 +47,10 @@ angular.module('postsSrc', [])
 					type: typ,
 					rate: cost,
 					avail: avail,
-					desc: desc
+					desc: desc,
+					location: location,
+					lat: lat, 
+					lng: lng
 				}
 			});
 		};

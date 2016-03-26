@@ -83,15 +83,37 @@ angular.module('createPostCtrl' , ['LocalStorageModule'])
 				});
 		};
 
-		vm.editPost = function(status, sport, typ, desc, avail, cost) {
-			postsSrc.editPost(status, sport, typ, desc, avail, cost)
-				.then(function(response) {
-					console.log(response);
-					vm.goTo("posts/my/" + vm.singlePost.user_id);
-				})
-				.catch(function(err) {
-					console.log(err);
-				});
+		vm.editPost = function(stat, sport, typ, desc, avail, cost) {
+
+			// if user does not move marker the lat long and
+			if(vm.lat === undefined) {
+				vm.lat = parseFloat(vm.cords[0]);
+				vm.lng = parseFloat(vm.cords[1]);
+			}
+			// Obj to send to geocode
+			var latLngObj = { lat: vm.lat, lng: vm.lng};
+
+			var geocoder = new google.maps.Geocoder();
+
+ 	  	geocoder.geocode({location: latLngObj}, function(results, status) {
+ 	  		//Geocode is successful hit service which hits server to store post
+     		if(status === google.maps.GeocoderStatus.OK){
+     			// returning formatted location
+       		var formatLocation = results[1].formatted_address;
+
+					postsSrc.editPost(stat, sport, typ, desc, avail, cost, formatLocation, vm.lat, vm.lng)
+						.then(function(response) {
+							console.log(response);
+							vm.goTo("posts/my/" + vm.singlePost.user_id);
+						})
+						.catch(function(err) {
+							console.log(err);
+						});
+				} else {
+					alert('Cannot find marker location');
+				}
+			});
+
 		};
 
 		// Map function gets used in creating post and editing posts
@@ -105,10 +127,6 @@ angular.module('createPostCtrl' , ['LocalStorageModule'])
 				// vm.area is user lat lng 
 				vm.cords = vm.area.split(',');
 			}
-			
-
-	  	
-	 
 
 	  	var mapOptions = {
         zoom: 11,
