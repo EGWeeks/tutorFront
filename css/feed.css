@@ -22,10 +22,13 @@
 }
 
 .feedscroll {
+	padding-bottom: 20px;
 	background-color: rgba(31, 12, 12, 0.7);
 	overflow: auto;
+	min-height: 86vh;
 	max-height: 88vh;
 	overflow-y: auto;
+	box-shadow: 0 5px rgba(0,0,0,0.2);
 }
 
 .feedHeader {
@@ -37,8 +40,11 @@
 	background: white;
 	padding: 5px 0;
 	border: 1px solid black;
-	border-radius: 15px;
 	box-shadow: 0 5px rgba(0,0,0,0.2);
+}
+
+.downArrow {
+	text-align: center;
 }
 
 .post:not(:first-child) {

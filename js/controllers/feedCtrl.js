@@ -91,7 +91,7 @@ angular.module('feedCtrl', ['LocalStorageModule'])
  	  vm.markerListener = function(marker, id) {
 
 	  	marker.addListener('click', function() {
-	  		
+
 				vm.hideFeed = true;
 
 	  		feedSrc.getPostById(id)
@@ -104,5 +104,17 @@ angular.module('feedCtrl', ['LocalStorageModule'])
 	  			});
 	  	});
 	  };
+
+	  vm.getPostById = function(id) {
+
+	  	feedSrc.getPostById(id)
+	  			.then(function(response) {
+	  				console.log(response);
+	  				vm.singlePost = response.data.post[0];
+	  			})
+	  			.catch(function(err) {
+	  				console.log(err);
+	  			});
+	  		};
 
 	}
