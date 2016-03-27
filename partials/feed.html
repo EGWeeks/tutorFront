@@ -12,7 +12,7 @@
 		<!-- Slide Out Filter Tool -->
 		<div class='col-md-2 toolscroll'>
 			<div class='row'>
-				<h3 class='toolHeader' >Filter</h3>
+				<h3 class='toolHeader' >Search</h3>
 			</div>
 			<form>
 				<div class='row'>
@@ -30,7 +30,7 @@
 					<div class='radio'>
 						<h4 class='toolHeader'>Type</h4>
 						<label>
-							<input type='radio' name="optionsRadios" id="optionsRadios1" value='Instructors' ng-model='FC.type' /> Instructors
+							<input type='radio' name="optionsRadios" id="optionsRadios1" value='Instructors' ng-model='FC.type' required /> Instructors
 						</label> 
 					</div>
 					<div class='radio'>
@@ -40,7 +40,7 @@
 					</div>
 				</div>
 				<div class='row'>
-					<button type='button' class='btn btn-primary btn-block'>Filter</button>
+					<button type='button' class='btn btn-primary btn-block' ng-click='FC.filterTool(FC.sport, FC.type)' >Filter</button>
 					<button type='button' class='btn btn-default btn-block' ng-click='FC.hideFeed = false; FC.clearFilter()' >Clear</button>
 				</div>
 			</form>

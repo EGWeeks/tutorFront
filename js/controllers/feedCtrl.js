@@ -123,4 +123,14 @@ angular.module('feedCtrl', ['LocalStorageModule'])
 	  	vm.type = null;
 	  };
 
+	  vm.filterTool = function(sport, type) {
+	  	feedSrc.getPostingsBySearch(sport, type)
+	  		.then(function(response) {
+	  			console.log(response);
+	  		})
+	  		.catch(function(err) {
+	  			console.log(err);
+	  		});
+	  };
+
 	}

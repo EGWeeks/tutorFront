@@ -26,4 +26,11 @@ angular.module('feedSrc', [])
 			});
 		};
 
+		this.getPostingsBySearch = function(sport, type) {
+			return $http({
+				method: 'GET',
+				url: 'http://localhost:3000/feed/' + sport + '/' + type
+			});
+		};
+
 	}
