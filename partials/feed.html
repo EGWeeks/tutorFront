@@ -27,15 +27,15 @@
 	        </select>
 				</div>
 				<div class='row typeRadio'>
-					<div class='radio'>
+					<div class='radio' ng-init='FC.type = "Instructor"'>
 						<h4 class='toolHeader'>Type</h4>
 						<label>
-							<input type='radio' name="optionsRadios" id="optionsRadios1" value='Instructors' ng-model='FC.type' required /> Instructors
+							<input type='radio' name="optionsRadios" id="optionsRadios1" value='Instructor' ng-model='FC.type' /> Instructors
 						</label> 
 					</div>
 					<div class='radio'>
 						<label>
-							<input type='radio' name="optionsRadios" id="optionsRadios2" value='students' ng-model='FC.type' /> students
+							<input type='radio' name="optionsRadios" id="optionsRadios2" value='Student' ng-model='FC.type' /> Students
 						</label> 
 					</div>
 				</div>

@@ -127,6 +127,9 @@ angular.module('feedCtrl', ['LocalStorageModule'])
 	  	feedSrc.getPostingsBySearch(sport, type)
 	  		.then(function(response) {
 	  			vm.postings = response.data.posts;
+	  			//Need to show the markers in the postings feed
+	  			//respone is returning lat and lng
+	  			// How to updated map to show new markers??
 	  		})
 	  		.catch(function(err) {
 	  			console.log(err);
