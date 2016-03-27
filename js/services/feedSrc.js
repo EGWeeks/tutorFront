@@ -29,7 +29,7 @@ angular.module('feedSrc', [])
 		this.getPostingsBySearch = function(sport, type) {
 			return $http({
 				method: 'GET',
-				url: 'http://localhost:3000/feed/' + sport + '/' + type
+				url: 'http://localhost:3000/feed/search/' + sport + '/' + type
 			});
 		};
 

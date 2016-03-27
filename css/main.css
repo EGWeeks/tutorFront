@@ -1,7 +1,5 @@
-.myProfileImg {
-	height: 15rem;
-	width: 15rem;
-}
+
+/***** Applied to all Partials *****/
 
 .navbar {
 	opacity: 0.9;
@@ -10,4 +8,17 @@
 
 .core {
 	padding-top: 80px;
+}
+
+/***** Create Posts Map *****/
+
+#createMap {
+ 	height: 500px;
+ 	width: 100%;
+ }
+
+/*User Profile image in edit*/
+.myProfileImg {
+	height: 15rem;
+	width: 15rem;
 }

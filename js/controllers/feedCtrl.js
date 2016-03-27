@@ -126,7 +126,7 @@ angular.module('feedCtrl', ['LocalStorageModule'])
 	  vm.filterTool = function(sport, type) {
 	  	feedSrc.getPostingsBySearch(sport, type)
 	  		.then(function(response) {
-	  			console.log(response);
+	  			vm.postings = response.data.posts;
 	  		})
 	  		.catch(function(err) {
 	  			console.log(err);
