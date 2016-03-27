@@ -1,6 +1,10 @@
-/******* Feed ********/
+/******* feed ********/
 
-/***** posts *****/
+a {
+	text-decoration: none !important;
+}
+
+/***** Map *****/
 
 #map {
 	position: absolute;
@@ -11,14 +15,19 @@
 	height: 100vh;
 }
 
-.firstCol {
-	text-align: center;
+/***** ToolSlide *****/
+.toolscroll {
+	padding-bottom: 20px;
+	background-color: #333;
+	opacity: 0.9;
+	min-height: 86vh;
+	max-height: 88vh;
+	box-shadow: 0 5px rgba(0,0,0,0.2);
+	color: white;
 }
 
-.thumbImg {
-	height: 80px;
-	width: 80px;
-	margin: 5px;
+.toolHeader {
+	text-align: center;
 }
 
 .feedscroll {
@@ -32,26 +41,14 @@
 	box-shadow: 0 5px rgba(0,0,0,0.2);
 }
 
+.typeRadio {
+	padding: 10px;
+}
+
+/***** Postings Scroll *****/
+
 .feedHeader {
 	color: white;
-	text-align: center;
-}
-
-.toolSlide {
-	height: 100vh;
-}
-.searchSlide {
-	position: absolute;
-	top: 38%;
-}
-.post {
-	background: white;
-	padding: 5px 0;
-	border: 1px solid black;
-	box-shadow: 0 5px rgba(0,0,0,0.2);
-}
-
-.downArrow {
 	text-align: center;
 }
 
@@ -59,20 +56,26 @@
 	margin-top: 20px;
 }
 
+/*** Individual Post ***/
 
-.headStudent {
-	background-color: blue;
-	color: white;
-	width: 90%;
-	height: 5px;
+.post {
+	background: white;
+	padding: 5px 0;
+	border: 1px solid black;
+	box-shadow: 0 5px rgba(0,0,0,0.2);
 }
 
-.headTutor {
-	background-color: yellow;
-	color: white;
-	width: 90%;
-	height: 5px;
+.firstCol {
+	text-align: center;
 }
 
+.thumbImg {
+	height: 80px;
+	width: 80px;
+	margin: 5px;
+}
 
+.downArrow {
+	text-align: center;
+}
 

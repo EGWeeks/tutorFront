@@ -25,6 +25,7 @@ angular.module('feedCtrl', ['LocalStorageModule'])
 	  		.then(function(response) {
 	  			vm.location = response.data.users;
 	  			//create MAP & markers
+	  			console.log(vm.location);
 	  			vm.getMap(vm.location);
 	  		})
 	  		.catch(function(err) {
@@ -116,5 +117,11 @@ angular.module('feedCtrl', ['LocalStorageModule'])
 	  				console.log(err);
 	  			});
 	  		};
+
+	  vm.clearFilter = function() {
+	  	vm.sport = null;
+	  	vm.type = null;
+	  	vm.getTopFeed();
+	  };
 
 	}

@@ -6,10 +6,46 @@
 	<!-- Icon click listener -->
 	<a ng-click='FC.markerListener($event, marker)'></a>
 	<div class='row'>
-		<div class='col-md-1 toolSlide' >
+		<!-- <div class='col-md-1 toolSlide' >
 			<h3><a style='color: black;' class='searchSlide glyphicon glyphicon-search'></a></h3>
+		</div> -->
+		<!-- Slide Out Filter Tool -->
+		<div class='col-md-2 toolscroll'>
+			<div class='row'>
+				<h3 class='toolHeader' >Filter</h3>
+			</div>
+			<form>
+				<div class='row'>
+					<h4 class='toolHeader'>Sport</h4>
+					<select class="form-control" ng-model='FC.sport'>
+	          <option value='Biking' >Biking</option>
+	          <option value='Climbing' >Climbing</option>
+	          <option value='Fishing' >Fishing</option>
+	          <option value='Kayaking' >Kayaking</option>
+	          <option value='Skiing' >Skiing</option>
+	          <option value='Snowboarding' >Snowboarding</option>
+	        </select>
+				</div>
+				<div class='row typeRadio'>
+					<div class='radio'>
+						<h4 class='toolHeader'>Type</h4>
+						<label>
+							<input type='radio' name="optionsRadios" id="optionsRadios1" value='Instructors' ng-model='FC.type' /> Instructors
+						</label> 
+					</div>
+					<div class='radio'>
+						<label>
+							<input type='radio' name="optionsRadios" id="optionsRadios2" value='students' ng-model='FC.type' /> students
+						</label> 
+					</div>
+				</div>
+				<div class='row'>
+					<button type='button' class='btn btn-primary btn-block'>Filter</button>
+					<button type='button' class='btn btn-default btn-block' ng-click='FC.hideFeed = false; FC.clearFilter()' >Clear</button>
+				</div>
+			</form>
 		</div>
-		<div class='col-md-7'>
+		<div class='col-md-6'>
 		</div>
 		<div ng-hide='FC.hideFeed' class='col-md-4 feedscroll'>
 			<div class='row'>
@@ -60,6 +96,7 @@
 				<div class='col-md-1'>
 				</div>
 				<div class='col-md-1'>
+					<!-- Back button -->
 					<h3><a ng-click='FC.hideFeed = false' class='glyphicon glyphicon-chevron-left'></a></h3>
 				</div>
 				<div class='col-md-8'>
