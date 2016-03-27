@@ -23,7 +23,8 @@
 
 .feedscroll {
 	padding-bottom: 20px;
-	background-color: rgba(31, 12, 12, 0.7);
+	background-color: #333;
+	opacity: 0.9;
 	overflow: auto;
 	min-height: 86vh;
 	max-height: 88vh;
@@ -36,6 +37,13 @@
 	text-align: center;
 }
 
+.toolSlide {
+	height: 100vh;
+}
+.searchSlide {
+	position: absolute;
+	top: 38%;
+}
 .post {
 	background: white;
 	padding: 5px 0;

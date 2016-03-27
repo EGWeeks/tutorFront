@@ -1,14 +1,21 @@
 
-<div class='container core'>
+<div class='core'>
+	<!-- MAP -->
 	<div id='map'>
 	</div>
+	<!-- Icon click listener -->
 	<a ng-click='FC.markerListener($event, marker)'></a>
 	<div class='row'>
-		<div class='col-md-8'>
+		<div class='col-md-1 toolSlide' >
+			<h3><a style='color: black;' class='searchSlide glyphicon glyphicon-search'></a></h3>
+		</div>
+		<div class='col-md-7'>
 		</div>
 		<div ng-hide='FC.hideFeed' class='col-md-4 feedscroll'>
 			<div class='row'>
-				<h3 class='feedHeader'> Recent Postings </h3>
+				<div class='col-md-12'>
+					<h3 class='feedHeader' ng-hide='search'> Recent Postings </h3>
+				</div>
 			</div>
 			<!-- Filter ng repeat results '| postByRecent' -->
 			<div class='row post' ng-repeat='post in FC.postings ' >
