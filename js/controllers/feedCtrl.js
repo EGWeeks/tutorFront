@@ -84,19 +84,19 @@ angular.module('feedCtrl', ['LocalStorageModule'])
 
     		vm.marker.setMap(vm.map);
     		vm.markerListener(vm.marker, obj.id.toString());
+
     	});
 
  	  };
 
  	  vm.markerListener = function(marker, id) {
-
+ 	  	
 	  	marker.addListener('click', function() {
-
+	  		
 				vm.hideFeed = true;
 
 	  		feedSrc.getPostById(id)
 	  			.then(function(response) {
-	  				console.log(response);
 	  				vm.singlePost = response.data.post[0];
 	  			})
 	  			.catch(function(err) {
