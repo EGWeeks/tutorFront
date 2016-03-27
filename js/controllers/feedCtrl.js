@@ -121,7 +121,6 @@ angular.module('feedCtrl', ['LocalStorageModule'])
 	  vm.clearFilter = function() {
 	  	vm.sport = null;
 	  	vm.type = null;
-	  	vm.getTopFeed();
 	  };
 
 	}
