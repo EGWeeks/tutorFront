@@ -25,7 +25,6 @@ angular.module('feedCtrl', ['LocalStorageModule'])
 	  		.then(function(response) {
 	  			vm.location = response.data.users;
 	  			//create MAP & markers
-	  			console.log(vm.location);
 	  			vm.getMap(vm.location);
 	  		})
 	  		.catch(function(err) {
@@ -55,8 +54,16 @@ angular.module('feedCtrl', ['LocalStorageModule'])
 
     	vm.map = new google.maps.Map(document.getElementById('map'), mapOptions);
 
-    	// Loop for locations array to make markers for each
+    	vm.getMarkers(locations);
+
+
+ 	  };
+
+ 	  vm.getMarkers = function(locations) {
+ 	  	// Loop for locations array to make markers for each
     	// location lat and long
+    	vm.allMarkers = [];
+
     	locations.forEach(function(obj) {
     		
     		var icon;
@@ -80,15 +87,19 @@ angular.module('feedCtrl', ['LocalStorageModule'])
     			title: obj.location,
     			icon: icon,
     			animation: google.maps.Animation.DROP,
+    			name: obj.sport,
     			draggable: true
     		});
 
-    		vm.marker.setMap(vm.map);
-    		vm.markerListener(vm.marker, obj.id.toString());
+    		vm.allMarkers.push(vm.marker);
 
+    		vm.marker.setMap(vm.map);
+    	
+    		vm.markerListener(vm.marker, obj.id.toString());
     	});
 
  	  };
+
 
  	  vm.markerListener = function(marker, id) {
  	  	
@@ -118,22 +129,19 @@ angular.module('feedCtrl', ['LocalStorageModule'])
 	  			});
 	  		};
 
-	  vm.clearFilter = function() {
-	  	vm.sport = null;
-	  	vm.type = null;
+	  vm.searchFilter = function(search) {
+	  	// var search = search.toLowerCase();
+	  	var userSearch = search.toLowerCase();
+	  	
+	  	for (var i = 0; i < vm.allMarkers.length; i++) {
+        vm.marker = vm.allMarkers[i];
+        var name = vm.marker.name.toLowerCase();
+        // If is same category or category not picked
+        if (name == userSearch || userSearch.length === 0) {
+            vm.marker.setVisible(true);
+        } else {
+            vm.marker.setVisible(false);
+        }
+    	}
 	  };
-
-	  vm.filterTool = function(sport, type) {
-	  	feedSrc.getPostingsBySearch(sport, type)
-	  		.then(function(response) {
-	  			vm.postings = response.data.posts;
-	  			//Need to show the markers in the postings feed
-	  			//respone is returning lat and lng
-	  			// How to updated map to show new markers??
-	  		})
-	  		.catch(function(err) {
-	  			console.log(err);
-	  		});
-	  };
-
 	}

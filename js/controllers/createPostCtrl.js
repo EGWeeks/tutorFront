@@ -50,7 +50,7 @@ angular.module('createPostCtrl' , ['LocalStorageModule'])
 
  	  	geocoder.geocode({location: latLngObj}, function(results, status) {
  	  		//Geocode is successful hit service which hits server to store post
-     		if(status === google.maps.GeocoderStatus.OK){
+     		if (status === google.maps.GeocoderStatus.OK) {
      			// returning formatted location
        		var formatLocation = results[1].formatted_address;
 
@@ -72,12 +72,12 @@ angular.module('createPostCtrl' , ['LocalStorageModule'])
 
 		vm.getPostByPostId = function() {
 			postsSrc.getPostByPostId()
-				.then(function(response)  {
-					console.log(response);
+				.then(function(response) {
 					vm.singlePost = response.data.post;
 					vm.getMap();
 				})
 				.catch(function(err) {
+					alert("We cannot find that post");
 					console.log(err);
 				});
 		};
@@ -102,10 +102,10 @@ angular.module('createPostCtrl' , ['LocalStorageModule'])
 
 					postsSrc.editPost(stat, sport, typ, desc, avail, cost, formatLocation, vm.lat, vm.lng)
 						.then(function(response) {
-							console.log(response);
 							vm.goTo("posts/my/" + vm.singlePost.user_id);
 						})
 						.catch(function(err) {
+							alert("Error editing post");
 							console.log(err);
 						});
 				} else {

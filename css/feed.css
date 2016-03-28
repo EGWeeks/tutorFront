@@ -15,20 +15,22 @@ a {
 	height: 100vh;
 }
 
-/***** ToolSlide *****/
-.toolscroll {
-	padding-bottom: 20px;
-	background-color: #333;
+/***** Search Input *****/
+
+.searchTool {
 	opacity: 0.9;
-	min-height: 86vh;
-	max-height: 88vh;
-	box-shadow: 0 5px rgba(0,0,0,0.2);
+}
+
+.searchInput, .searchSpan, .searchBut {
+	background-color: #333;
 	color: white;
 }
 
-.toolHeader {
-	text-align: center;
+.searchBut:hover {
+	background-color: black;
 }
+
+/***** Postings Scroll *****/
 
 .feedscroll {
 	padding-bottom: 20px;
@@ -40,12 +42,6 @@ a {
 	overflow-y: auto;
 	box-shadow: 0 5px rgba(0,0,0,0.2);
 }
-
-.typeRadio {
-	padding: 10px;
-}
-
-/***** Postings Scroll *****/
 
 .feedHeader {
 	color: white;
