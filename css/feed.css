@@ -7,6 +7,8 @@ a {
 hr {
 	text-align: center;
 	width : 80%;
+	margin-top: 5px;
+	margin-bottom: 5px;
 }
 
 /***** Map *****/
@@ -84,6 +86,9 @@ hr {
 	text-align: center;
 }
 
+.post-row {
+	padding-top: 5px;
+}
 /* User Info */
 
 .userHeader {
