@@ -22,7 +22,6 @@ angular.module('createPostCtrl' , ['LocalStorageModule'])
 		vm.getPostsByUserId = function() {
 			postsSrc.getPostsUserId()
 				.then(function(response) {
-					
 					vm.posts = response.data.posts;
 				})
 				.catch(function(err) {
@@ -155,8 +154,7 @@ angular.module('createPostCtrl' , ['LocalStorageModule'])
 
   		//get posting location by marker drag
 	   	google.maps.event.addListener(vm.marker, 'dragend', function() {
-	   		// set the new marker location's lat and lng\
-	     	
+	   		// set the new marker location's lat and lng
 	     	vm.marker.position[vm.marker.getPosition()];
 
 	     	// gets lat and long out of return functions

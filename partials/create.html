@@ -25,15 +25,15 @@
       </div>
       <div class="form-group">
         <label for="exampleInputDesc1">Description</label>
-        <textarea class="form-control" placeholder="I am getting into mountain biking and would like some guidance with..." ng-model='CPC.desc' ></textarea>
+        <textarea class="form-control" placeholder="I am getting into mountain biking and would like some guidance with..." ng-model='CPC.desc' maxlength='255' ></textarea>
       </div>
       <div class="form-group">
         <label for="exampleInputPassword1">Available</label>
-        <input type="text" class="form-control" placeholder="Mondays and Wednesday after 6 PM" ng-model='CPC.avail' required />
+        <input type="text" class="form-control" placeholder="Mondays and Wednesday after 6 PM" ng-model='CPC.avail' required  maxlength='255' />
       </div>
       <div class="form-group" ng-show='CPC.type == "Student"' >
         <label for="exampleInputRate1">Hourly rate</label>
-        <input type="text" class="form-control" placeholder="20.00" ng-model='CPC.rate' />
+        <input type="text" class="form-control" placeholder="20.00" ng-model='CPC.rate' maxlength='10'/>
       </div>
       <!-- MAP -->
       <div class="form-group" ng-init='CPC.getMap()'>

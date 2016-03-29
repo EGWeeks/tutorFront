@@ -14,6 +14,7 @@ angular.module('feedCtrl', ['LocalStorageModule'])
 	  		.then(function(response){
 	  			vm.hideFeed = false;
 	  			vm.postings = response.data.posts;
+	  			console.log(vm.postings);
 	  		})
 	  		.catch(function(err){
 	  			console.log(err);
@@ -65,7 +66,7 @@ angular.module('feedCtrl', ['LocalStorageModule'])
     	vm.allMarkers = [];
 
     	locations.forEach(function(obj) {
-    		
+
     		var icon;
     		if (obj.sport === 'Biking') {
     			icon = 'img/biking.png';
@@ -130,18 +131,29 @@ angular.module('feedCtrl', ['LocalStorageModule'])
 	  		};
 
 	  vm.searchFilter = function(search) {
-	  	// var search = search.toLowerCase();
+	  	
 	  	var userSearch = search.toLowerCase();
+
 	  	
 	  	for (var i = 0; i < vm.allMarkers.length; i++) {
         vm.marker = vm.allMarkers[i];
         var name = vm.marker.name.toLowerCase();
-        // If is same category or category not picked
-        if (name == userSearch || userSearch.length === 0) {
-            vm.marker.setVisible(true);
-        } else {
-            vm.marker.setVisible(false);
-        }
-    	}
+        // if statement is to check if search is empty 
+        // show every icon
+        // !NEEDS to be in first for loop
+        if (userSearch.length === 0) {
+	  			vm.marker.setVisible(true);
+	  		}
+        for(var n = 0; n < userSearch.length; n++) {
+	        // ONLY checking the current letter 
+	        // biking and skiing will show 
+	        if (name[n] == userSearch[n]) {
+	            vm.marker.setVisible(true);
+	        } else {
+	            vm.marker.setVisible(false);
+	        }
+      	}
+      }
 	  };
+
 	}

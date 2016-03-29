@@ -1,7 +1,7 @@
 
 <div class='core'>
 	<!-- MAP -->
-	<div id='map'>
+	<div id='map' >
 	</div> 
 	<!-- Icon click listener -->
 	<a ng-click='FC.markerListener($event, marker)'></a>
@@ -9,12 +9,9 @@
 		<!-- Search Tool -->
 		<div class='col-md-3 searchTool'>
 			<div class="input-group">
-      	<input type="text" class=" searchInput form-control" placeholder="e.g. Kayaking" ng-model='FC.query' ng-change='FC.searchFilter(FC.query)' >
-      	<!-- <span class="searchSpan input-group-btn">
-        	<button class=" searchBut btn btn-default" type="button" ng-click='FC.searchFilter(FC.query)' ><a class=' searchIcon glyphicon glyphicon-search' ></a></button>
-      	</span> -->
+      	<input type="text" class="searchInput form-control" placeholder="Search for..." ng-model='FC.query' ng-change='FC.searchFilter(FC.query)' />
       	<span class="searchSpan input-group-btn">
-        	<button class=" searchBut btn btn-default" type="button" ng-click='FC.query = undefined; FC.searchFilter("")' ><a class=' searchIcon glyphicon glyphicon-remove'></a></button>
+        	<button class=" searchBut btn btn-default" type="button" ng-click='FC.query = undefined; FC.searchFilter("")' ><a class='glyphicon glyphicon-remove'></a></button>
       	</span>
     	</div><!-- /input-group -->
 		</div>
@@ -38,10 +35,10 @@
 				</div>
 				<div class='col-md-4'>
 					<div class='row'>
-						<h5>Looking For: {{ post.type }}</h5>
+						<h5>{{ post.sport }}</h5>
 					</div>
 					<div class='row'>
-						<h5>{{ post.sport }}</h5>
+						<h5>Looking For: {{ post.type }}</h5>
 					</div>
 					<div class='row'>
 						<h5>{{ post.location }}</h5>
@@ -50,9 +47,6 @@
 				<div class='col-md-4'>
 					<div class='row'>
 						<a href='mailto:{{ post.email }}'><h5>Contact User</h5></a>
-					</div>
-					<div class='row'>
-						<h5>Posted: {{ post.created_at | dateFilter}}</h5>
 					</div>
 				</div>
 				<div class='row'>
@@ -79,47 +73,56 @@
 				</div>
 			</div>
 			<div class='row post'>
-				<div class='col-md-4 firstCol'>
-					<div class='row'>
-						<img class ='thumbImg' ng-src='{{ FC.singlePost.img }}' alt='profile photo' />
+				<div class='posting-info'>
+					<div class='col-md-4 firstCol'>
+						<div class='row'>
+							<img class ='thumbImg' ng-src='{{ FC.singlePost.img }}' alt='profile photo' />
+						</div>
+						<div class='row'>
+							<h5>{{ FC.singlePost.first_name }} {{ FC.singlePost.last_name }}</h5>
+						</div>
+					</div>
+					<div class='col-md-4'>
+						<div class='row'>
+							<h5>{{ FC.singlePost.sport }}</h5>
+						</div>
+						<div class='row'>
+							<h5>Looking For: {{ FC.singlePost.type }}</h5>
+						</div>
+						<div class='row'>
+							<h5>{{ FC.singlePost.location }}</h5>
+						</div>
+					</div>
+					<div class='col-md-4'>
+						<div class='row'>
+							<a href='mailto:{{ post.email }}'><h5>Contact User</h5></a>
+						</div>
 					</div>
 					<div class='row'>
-						<h5>{{ FC.singlePost.first_name }} {{ FC.singlePost.last_name }}</h5>
+						<div class='col-md-12'>
+							<h5>Description:</h5>
+							<p>{{ FC.singlePost.desc }}</p>
+						</div>
+					</div>
+					<div class='row'>
+						<div class='col-md-12'>
+							<h5>Available:</h5>
+							<p>
+								<i class="fa fa-calendar-check-o"></i>{{ FC.singlePost.avail }}
+							</p>
+						</div>
+					</div>
+					<div class='row' ng-hide=' FC.singlePost.rate == "n/a"'>
+						<div class='col-md-12'>
+							<h5>Rate:</h5>
+							<p>{{ FC.singlePost.rate }}</p>
+						</div>
 					</div>
 				</div>
-				<div class='col-md-4'>
-					<div class='row'>
-						<h5>Looking For: {{ FC.singlePost.type }}</h5>
-					</div>
-					<div class='row'>
-						<h5>Sport: {{ FC.singlePost.sport }}</h5>
-					</div>
-					<div class='row'>
-						<h5>{{ FC.singlePost.location }}</h5>
-					</div>
-				</div>
-				<div class='col-md-4'>
-					<div class='row'>
-						<a href='mailto:{{ post.email }}'><h5>Contact User</h5></a>
-					</div>
-				</div>
-				<div class='row'>
-					<div class='col-md-12'>
-						<h5>Description:</h5>
-						<p>{{ FC.singlePost.desc }}</p>
-					</div>
-				</div>
-				<div class='row'>
-					<div class='col-md-12'>
-						<h5>Available:</h5>
-						<p>{{ FC.singlePost.avail }}</p>
-					</div>
-				</div>
-				<div class='row' ng-hide=' FC.singlePost.rate == "n/a"'>
-					<div class='col-md-12'>
-						<h5>Rate:</h5>
-						<p>{{ FC.singlePost.rate }}</p>
-					</div>
+				<hr> <!-- Seperator -->
+				<div>
+					<h4 class='userHeader'>User Info</h4>
+
 				</div>
 			</div> <!-- End of indivivual post row -->
 		</div> <!-- End of Feed -->

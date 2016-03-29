@@ -5,15 +5,15 @@
     <form>
       <div class="form-group">
         <label for="first name">First name</label>
-        <input type="text" class="form-control" placeholder="Joe" ng-model='HC.first' required />
+        <input type="text" class="form-control" placeholder="Joe" ng-model='HC.first' maxlength='120' required />
       </div>
       <div class="form-group">
         <label for="last name">Last name</label>
-        <input type="text" class="form-control" placeholder="Schmoe" ng-model='HC.last' required />
+        <input type="text" class="form-control" placeholder="Schmoe" ng-model='HC.last' maxlength='120' required />
       </div>
       <div class="form-group">
         <label for="exampleInputEmail1">Email address</label>
-        <input type="email" class="form-control" placeholder="JoeSchome@yahoo.com" ng-model='HC.email' required />
+        <input type="email" class="form-control" placeholder="JoeSchome@yahoo.com" ng-model='HC.email' maxlength='255' required />
       </div>
       <div class="form-group">
         <label for="exampleInputImage1">Image URL</label>
@@ -21,19 +21,19 @@
       </div>
       <div class="form-group">
         <label for="exampleInputBio1">Bio</label>
-        <textarea class="form-control" placeholder="I am an ordinary guy that loves to program and ..." ng-model='HC.bio' required ></textarea>
+        <textarea class="form-control" placeholder="I am an ordinary guy that loves to program and ..." ng-model='HC.bio' maxlength='255' required ></textarea>
       </div>
       <div class="form-group">
         <label for="exampleInputLocation1">Location</label>
-        <input type="text" class="form-control" placeholder="Denver, CO" ng-model='HC.location' required />
+        <input type="text" class="form-control" placeholder="Denver, CO" ng-model='HC.location' maxlength='255' required />
       </div>
        <div class="form-group">
         <label for="exampleInputLocation1">Zip Code</label>
-        <input type="text" class="form-control" placeholder="80506" ng-model='HC.zipCode' required />
+        <input type="text" class="form-control" placeholder="80506" ng-model='HC.zipCode' maxlength='10' required />
       </div>
       <div class="form-group">
         <label for="exampleInputPassword1">Password</label>
-        <input type="password" class="form-control" placeholder="Password" ng-model='HC.pass' required />
+        <input type="password" class="form-control" placeholder="Password" ng-model='HC.pass' maxlength='255' required />
       </div>
       <button type="submit" class="btn btn-default" ng-click="HC.signUp(HC.first, HC.last, HC.email, HC.img, HC.bio, HC.location, HC.zipCode, HC.pass)">Submit</button>
     </form>

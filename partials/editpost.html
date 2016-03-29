@@ -25,15 +25,15 @@
       </div>
       <div class="form-group">
         <label for="exampleInputDesc1">Description</label>
-        <textarea class="form-control" ng-model='CPC.singlePost.desc' ></textarea>
+        <textarea class="form-control" ng-model='CPC.singlePost.desc' maxlength='255' ></textarea>
       </div>
       <div class="form-group">
         <label for="exampleInputPassword1">Available</label>
-        <input type="text" class="form-control" ng-model='CPC.singlePost.avail' required />
+        <input type="text" class="form-control" ng-model='CPC.singlePost.avail' required maxlength='255' />
       </div>
       <div class="form-group" ng-show='CPC.singlePost.type == "Student"' >
         <label for="exampleInputRate1">Hourly rate</label>
-        <input type="text" class="form-control" ng-model='CPC.singlePost.rate' />
+        <input type="text" class="form-control" ng-model='CPC.singlePost.rate' maxlength='10' />
       </div>
       <div class="form-group">
         <label>Location for posting</label>
