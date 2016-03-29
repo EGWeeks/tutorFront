@@ -1,8 +1,11 @@
 'use strict';
 
-var tutorConfig = angular.module('tutorConfig',['ngRoute']);
+var tutorConfig = angular.module('tutorConfig',['ngRoute', 'angular-loading-bar']);
 
-tutorConfig.config(['$httpProvider', '$routeProvider', function($httpProvider, $routeProvider) {
+tutorConfig.config(['$httpProvider', '$routeProvider', 'cfpLoadingBarProvider', function($httpProvider, $routeProvider, cfpLoadingBarProvider) {
+
+  cfpLoadingBarProvider.includeSpinner = false;
+  cfpLoadingBarProvider.includeBar = true;
 
 	$httpProvider.interceptors.push('authInterceptor');
 
