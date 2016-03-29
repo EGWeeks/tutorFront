@@ -1,5 +1,10 @@
 
 /***** Applied to all Partials *****/
+.navIcons {
+	font-size: 1.75em;
+	line-height: .75em;
+	vertical-align: -15%;
+}
 
 .navbar {
 	opacity: 0.9;
