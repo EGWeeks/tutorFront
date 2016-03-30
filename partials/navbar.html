@@ -1,12 +1,12 @@
 <nav class="navbar navbar-inverse navbar-fixed-top">
   <div class='container'>
     <div class="collapse navbar-collapse">
-      <ul ng-hide='HC.getToken()' class="nav navbar-nav">
+      <ul class="nav navbar-nav">
+        <li><a class="navbar-brand" href="#/">Backwoods Contact</a></li>
+      </ul>
+      <ul ng-hide='HC.getToken()' class="nav navbar-nav navbar-right">
         <li><a href="#/signup">Sign Up</a></li>
         <li><a href="#/login">Log In</a></li>
-      </ul>
-      <ul ng-hide='!HC.getToken()' class="nav navbar-nav">
-        <li><a class="navbar-brand" href="#/">Backwoods Contact</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">

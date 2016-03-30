@@ -72,6 +72,9 @@ hr {
 	box-shadow: 0 5px rgba(0,0,0,0.2);
 }
 
+.desc, .avail, .rate, .userLocal, .bio {
+	padding: 0 10px;
+}
 .firstCol {
 	text-align: center;
 }
