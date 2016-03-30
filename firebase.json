@@ -1,0 +1,9 @@
+{
+  "firebase": "backwoods",
+  "public": ".",
+  "ignore": [
+    "firebase.json",
+    "**/.*",
+    "**/node_modules/**"
+  ]
+}
