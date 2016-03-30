@@ -22,6 +22,7 @@ hr {
 	height: 100vh;
 }
 
+
 /***** Search Input *****/
 
 .searchTool {
@@ -39,6 +40,16 @@ hr {
 
 .searchBut:focus {
 	background-color: #222;
+}
+
+/*** Icon key + Footer ***/
+
+.footer {
+	color: white;
+}
+
+.icon-key {
+	padding-top: 8px;
 }
 
 /***** Postings Scroll *****/
