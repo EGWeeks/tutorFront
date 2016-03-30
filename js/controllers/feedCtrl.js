@@ -45,7 +45,7 @@ angular.module('feedCtrl', ['LocalStorageModule'])
         mapTypeId: google.maps.MapTypeId.TERRAIN,
         zoomControl: true,
         zoomControlOptions: {
-			  	position: google.maps.ControlPosition.LEFT_BOTTOM
+			  	position: google.maps.ControlPosition.LEFT_CENTER
 			  },
         mapTypeControl: false,
 			  scaleControl: false,
