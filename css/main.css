@@ -46,6 +46,12 @@
   font-size: 10rem;
 }
 
+/** Log In **/
+
+.demologin {
+  text-align: center;
+}
+
   /** Footer **/
 
 .footer {
