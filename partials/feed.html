@@ -17,14 +17,14 @@
 		</div>
 		<div class='col-md-5'>
 		</div>
-		<div ng-hide='FC.hideFeed' class='col-md-4 feedscroll'>
+		<div ng-hide='FC.hideFeed' class='col-md-4 feedscroll feedFadeIn'>
 			<div class='row'>
 				<div class='col-md-12'>
 					<h3 class='feedHeader' ng-hide='search'> Recent Postings </h3>
 				</div>
 			</div>
 			<!-- Filter ng repeat results '| postByRecent' -->
-			<div class='row post' ng-repeat='post in FC.postings | filter:FC.query' >
+			<div class='row post slideIn' ng-repeat='post in FC.postings | filter:FC.query' >
 				<div class='col-md-4 firstCol'>
 					<div class='row'>
 						<img class ='thumbImg' ng-src='{{ post.img }}' alt='profile photo' />

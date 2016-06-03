@@ -26,9 +26,9 @@ hr {
 /***** Search Input *****/
 
 .searchTool {
-	-webkit-animation: fadeInLeft 2.5s;
-  animation: fadeInLeft 2.5s;
 	opacity: 0.9;
+	-webkit-animation: fadeInDownBig 1.25s;
+  animation: fadeInDownBig 1.25s;
 }
 
 .searchInput, .searchSpan, .searchBut {
@@ -61,11 +61,9 @@ hr {
 /***** Postings Scroll *****/
 
 .feedscroll {
-	-webkit-animation: fadeInRight 2.5s;
-  animation: fadeInRight 2.5s;
+	opacity: 0.9;
 	padding-bottom: 20px;
 	background-color: #333;
-	opacity: 0.9;
 	overflow: auto;
 	min-height: 80vh;
 	max-height: 82vh;
@@ -111,6 +109,12 @@ hr {
 .post-row {
 	padding-top: 5px;
 }
+
+.slideIn {
+	-webkit-animation: fadeInDownBig 1.25s;
+  animation: fadeInDownBig 1.25s;
+}
+
 /* User Info */
 
 .userHeader {
