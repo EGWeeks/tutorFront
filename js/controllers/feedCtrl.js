@@ -40,7 +40,7 @@ angular.module('feedCtrl', ['LocalStorageModule'])
 	 
 
 	  	var mapOptions = {
-        zoom: 11,
+        zoom: 10,
         center: new google.maps.LatLng(parseFloat(latLng[0]), parseFloat(latLng[1]) ),
         mapTypeId: google.maps.MapTypeId.TERRAIN,
         zoomControl: true,
