@@ -5,8 +5,10 @@
         <li><a class="navbar-brand" href="#/">Backwoods Contact</a></li>
       </ul>
       <ul ng-hide='HC.getToken()' class="nav navbar-nav navbar-right">
-        <li><a class='navbar-brand' href="#/signup">Sign Up</a></li>
-        <li><a class='navbar-brand' href="#/login">Log In</a></li>
+        <li class='shakePointer'><a class='animate shake fa fa-hand-o-right fa-2x' href ng-click='HC.logIn("Demo@demo.com","demo")' ></a></li>
+        <li><a class='navbar-brand' href ng-click='HC.logIn("Demo@demo.com", "demo")'>Demo </a></li>
+        <li><a class='navbar-brand' href="#/login"> Log In </a></li>
+        <li><a class='navbar-brand' href="#/signup"> Sign Up </a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
