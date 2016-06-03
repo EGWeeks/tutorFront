@@ -26,6 +26,8 @@ hr {
 /***** Search Input *****/
 
 .searchTool {
+	-webkit-animation: fadeInLeft 2.5s;
+  animation: fadeInLeft 2.5s;
 	opacity: 0.9;
 }
 
@@ -59,6 +61,8 @@ hr {
 /***** Postings Scroll *****/
 
 .feedscroll {
+	-webkit-animation: fadeInRight 2.5s;
+  animation: fadeInRight 2.5s;
 	padding-bottom: 20px;
 	background-color: #333;
 	opacity: 0.9;
