@@ -1,4 +1,4 @@
-# tutorFront
+#Front end for [Backwoods Contact](https://backwoodscontact.xyz)
 
 ##Tech
 	- AngularJS
@@ -10,5 +10,5 @@
 	- Firebase Hosting
 
 
-Backwoods Contact Back End
-https://github.com/EGWeeks/tutorBack
+Back end repo [here.](https://github.com/EGWeeks/tutorBack)
+
