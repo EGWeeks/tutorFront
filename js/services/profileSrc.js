@@ -8,21 +8,21 @@ angular.module('profileSrc', [])
 		this.getUserById = function() {
 			return $http({
 				method: 'GET',
-				url: 'https://obscure-earth-64971.herokuapp.com/profile/' + $routeParams.id // https://obscure-earth-64971.herokuapp.com/
+				url: 'http://localhost:3000/profile/' + $routeParams.id // http://localhost:3000/
 			});
 		};
 
 		this.delUserById = function() {
 			return $http({
 				method: 'DELETE',
-				url: 'https://obscure-earth-64971.herokuapp.com/profile/' + $routeParams.id
+				url: 'http://localhost:3000/profile/' + $routeParams.id
 			});
 		};
 
 		this.editUserById = function(first, last, email, bio, area, zip, lat, lng, image) {
 			return $http({
 				method: 'PUT',
-				url: 'https://obscure-earth-64971.herokuapp.com/profile/' + $routeParams.id,
+				url: 'http://localhost:3000/profile/' + $routeParams.id,
 				data: {
 					firstName: first,
 					lastName: last, 

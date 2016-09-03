@@ -8,7 +8,7 @@ angular.module('homeSrc', [])
 		this.signUp = function(first, last, email, image, biography, area, zip, lat, lng, pass) {
 			return $http({
 				method: 'POST',
-				url: 'https://obscure-earth-64971.herokuapp.com/users/new', // http://localhost:3000/users/new
+				url: 'http://localhost:3000/users/new', // http://localhost:3000/users/new
 				data: {
 					firstName: first,
 					lastName: last,
@@ -27,7 +27,7 @@ angular.module('homeSrc', [])
 		this.logIn = function(email, pass) {
 			return $http({
 				method: 'POST',
-				url: 'https://obscure-earth-64971.herokuapp.com/users/signin',
+				url: 'http://localhost:3000/users/signin',
 				data: {
 					email : email,
 					password : pass

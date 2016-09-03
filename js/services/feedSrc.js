@@ -8,28 +8,28 @@ angular.module('feedSrc', [])
 		this.getTopFeed = function() {
 			return $http({
 				method: 'GET',
-				url: 'https://obscure-earth-64971.herokuapp.com/feed'
+				url: 'http://localhost:3000/feed'
 			});
 		};
 
 		this.getAllLocations = function() {
 			return $http({
 				method: 'GET',
-				url: 'https://obscure-earth-64971.herokuapp.com/feed/location'
+				url: 'http://localhost:3000/feed/location'
 			});
 		};
 
 		this.getPostById = function(postId) {
 			return $http({
 				method: 'GET',
-				url: 'https://obscure-earth-64971.herokuapp.com/feed/' + postId
+				url: 'http://localhost:3000/feed/' + postId
 			});
 		};
 
 		this.getPostingsBySearch = function(sport, type) {
 			return $http({
 				method: 'GET',
-				url: 'https://obscure-earth-64971.herokuapp.com/feed/search/' + sport + '/' + type
+				url: 'http://localhost:3000/feed/search/' + sport + '/' + type
 			});
 		};
 

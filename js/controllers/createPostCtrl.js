@@ -22,6 +22,7 @@ angular.module('createPostCtrl' , ['LocalStorageModule'])
 		vm.getPostsByUserId = function() {
 			postsSrc.getPostsUserId()
 				.then(function(response) {
+					console.log(response);
 					vm.posts = response.data.posts;
 				})
 				.catch(function(err) {

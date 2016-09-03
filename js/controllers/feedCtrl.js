@@ -14,7 +14,6 @@ angular.module('feedCtrl', ['LocalStorageModule'])
 	  		.then(function(response){
 	  			vm.hideFeed = false;
 	  			vm.postings = response.data.posts;
-	  			console.log(vm.postings);
 	  		})
 	  		.catch(function(err){
 	  			console.log(err);
@@ -122,7 +121,6 @@ angular.module('feedCtrl', ['LocalStorageModule'])
 
 	  	feedSrc.getPostById(id)
 	  			.then(function(response) {
-	  				console.log(response);
 	  				vm.singlePost = response.data.post[0];
 	  			})
 	  			.catch(function(err) {

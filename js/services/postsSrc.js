@@ -8,7 +8,7 @@ angular.module('postsSrc', [])
 		this.createPost = function(sport, typ, desc, avail, cost, id, location, lat, lng) {
 			return $http({
 				method: 'POST',
-				url: 'https://obscure-earth-64971.herokuapp.com/posts',
+				url: 'http://localhost:3000/posts',
 				data: {
 					sport: sport,
 					type: typ,
@@ -26,21 +26,21 @@ angular.module('postsSrc', [])
 		this.getPostsUserId = function() {
 			return $http({
 				method: 'GET',
-				url: 'https://obscure-earth-64971.herokuapp.com/posts/my/' + $routeParams.id
+				url: 'http://localhost:3000/posts/my/' + $routeParams.id
 			});
 		};
 
 		this.getPostByPostId = function() {
 			return $http({
 				method: 'GET',
-				url: 'https://obscure-earth-64971.herokuapp.com/posts/my/' + $routeParams.id + '/' + $routeParams.post
+				url: 'http://localhost:3000/posts/my/' + $routeParams.id + '/' + $routeParams.post
 			});
 		};
 
 		this.editPost = function(status, sport, typ, desc, avail, cost, location, lat, lng) {
 			return $http({
 				method: 'PUT',
-				url: 'https://obscure-earth-64971.herokuapp.com/posts/my/' + $routeParams.id + '/' + $routeParams.post,
+				url: 'http://localhost:3000/posts/my/' + $routeParams.id + '/' + $routeParams.post,
 				data: {
 					status: status,
 					sport: sport,
