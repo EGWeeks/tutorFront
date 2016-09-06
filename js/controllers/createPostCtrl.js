@@ -4,20 +4,24 @@ angular.module('createPostCtrl' , ['LocalStorageModule'])
 	.controller('createPostCtrl', ['$location','postsSrc', 'localStorageService', CreatePostCtrl]);
 
 	function CreatePostCtrl($location, postsSrc, localStorageService) {
+		
 
 		var vm = this;
 		vm.status = 'success';
 		vm.area = localStorageService.get('area');
 
+
 		vm.goTo = function(route) {
 			$location.path(route);
 		};
+
 
 		vm.goToEditPost = function(postId) {
 			var userId = localStorageService.get('id');
 			console.log(postId);
 			$location.path('/post/edit/'+ userId + '/' + postId);
 		};
+
 		
 		vm.getPostsByUserId = function() {
 			postsSrc.getPostsUserId()
@@ -29,6 +33,7 @@ angular.module('createPostCtrl' , ['LocalStorageModule'])
 					console.log(err);
 				});
 		};
+
 
 		vm.createPosts = function(sport, type, desc, avail, rate) {
 			// assign rate a value if not specified
@@ -66,9 +71,8 @@ angular.module('createPostCtrl' , ['LocalStorageModule'])
        		alert('Cannot find location');
        	}
      	}); 
-
-			
 		};
+
 
 		vm.getPostByPostId = function() {
 			postsSrc.getPostByPostId()
