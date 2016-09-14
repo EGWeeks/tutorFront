@@ -41,7 +41,7 @@ angular.module('feedCtrl', ['LocalStorageModule'])
 	  	var mapOptions = {
         zoom: 10,
         center: new google.maps.LatLng(parseFloat(latLng[0]), parseFloat(latLng[1]) ),
-        mapTypeId: google.maps.MapTypeId.TERRAIN,
+        mapTypeId: google.maps.MapTypeId.TERRIAN,
         zoomControl: true,
         zoomControlOptions: {
 			  	position: google.maps.ControlPosition.RIGHT_CENTER
@@ -49,7 +49,22 @@ angular.module('feedCtrl', ['LocalStorageModule'])
         mapTypeControl: false,
 			  scaleControl: false,
 			  streetViewControl: false,
-			  rotateControl: false
+			  rotateControl: false,
+			  styles: [
+            {
+              featureType: 'all',
+              stylers: [
+                { saturation: -40 }
+              ]
+            },{
+              featureType: 'road.arterial',
+              elementType: 'geometry',
+              stylers: [
+                { hue: '#00ffee' },
+                { saturation: 100 }
+              ]
+            }
+          ]
     	};
 
     	vm.map = new google.maps.Map(document.getElementById('map'), mapOptions);
@@ -88,7 +103,7 @@ angular.module('feedCtrl', ['LocalStorageModule'])
     			icon: icon,
     			animation: google.maps.Animation.DROP,
     			name: obj.sport,
-    			draggable: true
+    			draggable: false
     		});
 
     		vm.allMarkers.push(vm.marker);
