@@ -1,95 +1,37 @@
 
-<div class='core'>
+<div>
 	<!-- MAP -->
 	<div id='map'>
 	</div> 
 	<!-- Icon click listener -->
 	<a ng-click='FC.markerListener($event, marker)'></a>
 	<div class='row'>
-		<!-- Search Tool -->
-		<div class='col-md-3 searchTool'>
-			<div class="input-group">
-      	<input type="text" class="searchInput form-control" placeholder="Search for..." ng-model='FC.query' ng-change='FC.searchFilter(FC.query)' />
-      	<span class="searchSpan input-group-btn">
-        	<button class=" searchBut btn btn-default" type="button" ng-click='FC.query = undefined; FC.searchFilter("")' ><a class='glyphicon glyphicon-remove'></a></button>
-      	</span>
-    	</div><!-- /input-group -->
-		</div>
-		<div class='col-md-5'>
-		</div>
-		<div ng-hide='FC.hideFeed' class='col-md-4 feedscroll feedFadeIn'>
-			<div class='row'>
-				<div class='col-md-12'>
-					<h3 class='feedHeader' ng-hide='search'> Recent Postings </h3>
-				</div>
-			</div>
-			<!-- Filter ng repeat results '| postByRecent' -->
-			<div class='row post slideIn' ng-repeat='post in FC.postings | filter:FC.query' >
-				<div class='col-md-4 firstCol'>
-					<div class='row'>
-						<img class ='thumbImg' ng-src='{{ post.img }}' alt='profile photo' />
-					</div>
-					<div class='row'>
-						<h5>{{ post.first_name }} {{ post.last_name }}</h5>
-					</div>
-				</div>
-				<div class='col-md-8'>
-					<div class='row post-row'>
-						<div class='col-md-6'>
-							<h4>{{ post.sport }}</h4>
-						</div>
-						<div class='col-md-6'>
-							<a href='mailto:{{ post.email }}'><h4>Contact User</h4></a>
-						</div>
-					</div>
-					<div class='row post-row'>
-						<div class='col-md-12'>
-							<h5>Looking For: {{ post.type }}</h5>
-						</div>
-					</div>
-					<div class='row post-row'>
-						<div class='col-md-12'>
-							<h5>{{ post.location }}</h5>
-						</div>
-					</div>
-				</div>
+		<div id='feed-container'>
+			<div ng-hide='FC.hideFeed' class='col-md-4 feedscroll feedFadeIn'>
 				<div class='row'>
-					<div class='col-md-12 downArrow'>
-						<a ng-click='FC.getPostById(post.id); FC.hideFeed = true;' class='glyphicon glyphicon-menu-down'></a>
+					<div class='col-md-12'>
+						<div class="input-group">
+			      	<input type="text" class="searchInput form-control" placeholder="Search for..." ng-model='FC.query' ng-change='FC.searchFilter(FC.query)' />
+			      	<span class="searchSpan input-group-btn">
+			        	<button class=" searchBut btn btn-default" type="button" ng-click='FC.query = undefined; FC.searchFilter("")' ><a class='glyphicon glyphicon-remove'></a></button>
+			      	</span>
+			    	</div><!-- /input-group -->
 					</div>
 				</div>
-			</div> <!-- End of indivivual post row -->
-		</div> <!-- End of Feed -->
-
-		<!-- SINGLE POSTING -->
-		<div ng-hide='!FC.hideFeed' class='col-md-4 feedscroll singlePost'>
-			<div class='row'>
-				<div class='col-md-1'>
-				</div>
-				<div class='col-md-1'>
-					<!-- Back button -->
-					<h3><a ng-click='FC.hideFeed = false' class='glyphicon glyphicon-chevron-left'></a></h3>
-				</div>
-				<div class='col-md-8'>
-					<h3 class='feedHeader'>Posting</h3>
-				</div>
-				<div class='col-md-2'>
-				</div>
-			</div>
-			<div class='row post'>
-				<div class='posting-info'>
+				<!-- Filter ng repeat results '| postByRecent' -->
+				<div class='row post slideIn' ng-repeat='post in FC.postings | filter:FC.query' >
 					<div class='col-md-4 firstCol'>
 						<div class='row'>
-							<img class ='thumbImg' ng-src='{{ FC.singlePost.img }}' alt='profile photo' />
+							<img class ='thumbImg' ng-src='{{ post.img }}' alt='profile photo' />
 						</div>
 						<div class='row'>
-							<h5>{{ FC.singlePost.first_name }} {{ FC.singlePost.last_name }}</h5>
+							<h5>{{ post.first_name }} {{ post.last_name }}</h5>
 						</div>
 					</div>
 					<div class='col-md-8'>
 						<div class='row post-row'>
 							<div class='col-md-6'>
-								<h4>{{ FC.singlePost.sport }}</h4>
+								<h4>{{ post.sport }}</h4>
 							</div>
 							<div class='col-md-6'>
 								<a href='mailto:{{ post.email }}'><h4>Contact User</h4></a>
@@ -97,55 +39,111 @@
 						</div>
 						<div class='row post-row'>
 							<div class='col-md-12'>
-								<h5>Looking For: {{ FC.singlePost.type }}</h5>
+								<h5>Looking For: {{ post.type }}</h5>
 							</div>
 						</div>
 						<div class='row post-row'>
 							<div class='col-md-12'>
-								<h5>{{ FC.singlePost.location }}</h5>
+								<h5>{{ post.location }}</h5>
 							</div>
 						</div>
 					</div>
-					<div class='row desc'>
-						<div class='col-md-12'>
-							<h5>Description:</h5>
-							<p>{{ FC.singlePost.desc }}</p>
+					<div class='row'>
+						<div class='col-md-12 downArrow'>
+							<a ng-click='FC.getPostById(post.id); FC.hideFeed = true;' class='glyphicon glyphicon-menu-down'></a>
 						</div>
 					</div>
-					<div class='row avail'>
-						<div class='col-md-12'>
-							<h5>Available:</h5>
-							<p>
-								<i class="fa fa-calendar-check-o"></i> {{ FC.singlePost.avail }}
-							</p>
-						</div>
-					</div>
-					<div class='row rate' ng-hide=' FC.singlePost.rate == "n/a"'>
-						<div class='col-md-12'>
-							<h5>Rate:</h5>
-							<p>{{ FC.singlePost.rate }}</p>
-						</div>
-					</div>
-				<hr> <!-- Seperator -->
+				</div> <!-- End of indivivual post row -->
+			</div> <!-- End of Feed -->
+					<!-- SINGLE POSTING -->
+			<div ng-hide='!FC.hideFeed' class='col-md-4 feedscroll singlePost'>
 				<div class='row'>
-					<div class='col-md-12'>
-						<h4 class='userHeader'>User Info</h4>
+					<div class='col-md-1'>
+					</div>
+					<div class='col-md-1'>
+						<!-- Back button -->
+						<h3><a ng-click='FC.hideFeed = false' class='glyphicon glyphicon-chevron-left'></a></h3>
+					</div>
+					<div class='col-md-8'>
+						<h3 class='feedHeader'>Posting</h3>
+					</div>
+					<div class='col-md-2'>
 					</div>
 				</div>
-				<div class='row userLocal'>
-					<div class='col-md-12'>
-						<p>Located in the {{ FC.singlePost.user_location }} area.</p>
+				<div class='row post'>
+					<div class='posting-info'>
+						<div class='col-md-4 firstCol'>
+							<div class='row'>
+								<img class ='thumbImg' ng-src='{{ FC.singlePost.img }}' alt='profile photo' />
+							</div>
+							<div class='row'>
+								<h5>{{ FC.singlePost.first_name }} {{ FC.singlePost.last_name }}</h5>
+							</div>
+						</div>
+						<div class='col-md-8'>
+							<div class='row post-row'>
+								<div class='col-md-6'>
+									<h4>{{ FC.singlePost.sport }}</h4>
+								</div>
+								<div class='col-md-6'>
+									<a href='mailto:{{ post.email }}'><h4>Contact User</h4></a>
+								</div>
+							</div>
+							<div class='row post-row'>
+								<div class='col-md-12'>
+									<h5>Looking For: {{ FC.singlePost.type }}</h5>
+								</div>
+							</div>
+							<div class='row post-row'>
+								<div class='col-md-12'>
+									<h5>{{ FC.singlePost.location }}</h5>
+								</div>
+							</div>
+						</div>
+						<div class='row desc'>
+							<div class='col-md-12'>
+								<h5>Description:</h5>
+								<p>{{ FC.singlePost.desc }}</p>
+							</div>
+						</div>
+						<div class='row avail'>
+							<div class='col-md-12'>
+								<h5>Available:</h5>
+								<p>
+									<i class="fa fa-calendar-check-o"></i> {{ FC.singlePost.avail }}
+								</p>
+							</div>
+						</div>
+						<div class='row rate' ng-hide=' FC.singlePost.rate == "n/a"'>
+							<div class='col-md-12'>
+								<h5>Rate:</h5>
+								<p>{{ FC.singlePost.rate }}</p>
+							</div>
+						</div>
+					<hr> <!-- Seperator -->
+					<div class='row'>
+						<div class='col-md-12'>
+							<h4 class='userHeader'>User Info</h4>
+						</div>
 					</div>
-				</div>
-				<div class='row bio'>
-					<div class='col-md-12'>
-						<h5>Bio</h5>
-						<p>{{ FC.singlePost.bio }}</p>
+					<div class='row userLocal'>
+						<div class='col-md-12'>
+							<p>Located in the {{ FC.singlePost.user_location }} area.</p>
+						</div>
 					</div>
-				</div>
-			</div> <!-- End of indivivual post row -->
-		</div> <!-- End of Feed -->
+					<div class='row bio'>
+						<div class='col-md-12'>
+							<h5>Bio</h5>
+							<p>{{ FC.singlePost.bio }}</p>
+						</div>
+					</div>
+				</div> <!-- End of indivivual post row -->
+			</div> <!-- End of Feed -->
+		</div>
 	</div>
+	<div class='col-md-8'>
+	</div>
+	
 </div>
 <footer class="footer icon-key">
 			<span><img src='img/biking.png' alt='biking icon' /> = Biking </span> 
