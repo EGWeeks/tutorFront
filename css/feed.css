@@ -65,7 +65,7 @@ hr {
 	background-color: #222;
 	overflow: auto;
 	min-height: 80vh;
-	max-height: 84vh;
+	max-height: 86vh;
 	overflow-y: auto;
 }
 
@@ -76,6 +76,10 @@ hr {
 
 .post {
 	margin-top: 20px;
+}
+
+.each-row {
+	margin-right: 0;
 }
 
 /*** Individual Post ***/
